@@ -17,6 +17,9 @@ namespace Szakdolgozat
         public static Form form_felvétele = null;
         public static Form form_kimutatas = null;
         public static Form form_gyermekKeres = null;
+        public static Form form_szerkeszt = null;
+        public static Form csoport_szerkeszt = null;
+        public static Form intezmenyszerkeszt = null;
 
 
         [STAThread]
@@ -49,6 +52,9 @@ namespace Szakdolgozat
             form_felvétele = new gyermekfelvetele();
             form_kimutatas = new Kimutatás();
             form_gyermekKeres = new gyermekKeres();
+            form_szerkeszt = new Szerkeszt();
+            csoport_szerkeszt = new csoport_szerkesztés();
+            intezmenyszerkeszt = new intezmenyszerkeszt();
             Application.Run(form_nyito);
         }
     }

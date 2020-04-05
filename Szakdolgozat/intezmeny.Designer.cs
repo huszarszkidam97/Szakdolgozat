@@ -47,8 +47,6 @@
             this.kimutatLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sugóToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.csoportokSzamaNum)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -61,7 +59,8 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(122, 72);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(60, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 24);
             this.label1.TabIndex = 0;
@@ -73,7 +72,8 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(122, 108);
+            this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label2.Location = new System.Drawing.Point(60, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 24);
             this.label2.TabIndex = 1;
@@ -85,7 +85,8 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(122, 145);
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(60, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 24);
             this.label3.TabIndex = 2;
@@ -101,11 +102,10 @@
             this.gyermekKereseseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekKereseseButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekKereseseButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.gyermekKereseseButton.Location = new System.Drawing.Point(617, 30);
+            this.gyermekKereseseButton.Location = new System.Drawing.Point(617, 47);
             this.gyermekKereseseButton.Name = "gyermekKereseseButton";
             this.gyermekKereseseButton.Size = new System.Drawing.Size(150, 50);
             this.gyermekKereseseButton.TabIndex = 11;
-            this.gyermekKereseseButton.Text = "GYERMEK KERESÉSE";
             this.gyermekKereseseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekKereseseButton.UseVisualStyleBackColor = false;
             this.gyermekKereseseButton.Click += new System.EventHandler(this.gyermekKereseseButton_Click);
@@ -120,11 +120,10 @@
             this.gyermekFelveteleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekFelveteleButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekFelveteleButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.gyermekFelveteleButton.Location = new System.Drawing.Point(439, 30);
+            this.gyermekFelveteleButton.Location = new System.Drawing.Point(439, 47);
             this.gyermekFelveteleButton.Name = "gyermekFelveteleButton";
             this.gyermekFelveteleButton.Size = new System.Drawing.Size(150, 50);
             this.gyermekFelveteleButton.TabIndex = 10;
-            this.gyermekFelveteleButton.Text = "GYERMEK FELVÉTELE";
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
             this.gyermekFelveteleButton.Click += new System.EventHandler(this.gyermekFelveteleButton_Click);
@@ -139,11 +138,10 @@
             this.csoportHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.csoportHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.csoportHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.csoportHozzaadButton.Location = new System.Drawing.Point(226, 30);
+            this.csoportHozzaadButton.Location = new System.Drawing.Point(226, 47);
             this.csoportHozzaadButton.Name = "csoportHozzaadButton";
             this.csoportHozzaadButton.Size = new System.Drawing.Size(190, 50);
             this.csoportHozzaadButton.TabIndex = 9;
-            this.csoportHozzaadButton.Text = "CSOPORTOK HOZZÁADÁSA";
             this.csoportHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.csoportHozzaadButton.UseVisualStyleBackColor = false;
             this.csoportHozzaadButton.Click += new System.EventHandler(this.csoportHozzaadButton_Click);
@@ -158,11 +156,10 @@
             this.intHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.intHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.intHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.intHozzaadButton.Location = new System.Drawing.Point(12, 30);
+            this.intHozzaadButton.Location = new System.Drawing.Point(12, 47);
             this.intHozzaadButton.Name = "intHozzaadButton";
             this.intHozzaadButton.Size = new System.Drawing.Size(190, 50);
             this.intHozzaadButton.TabIndex = 8;
-            this.intHozzaadButton.Text = "INTÉZMÉNY HOZZÁADÁSA";
             this.intHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.intHozzaadButton.UseVisualStyleBackColor = false;
             // 
@@ -170,7 +167,7 @@
             // 
             this.intNevTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.intNevTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intNevTextBox.Location = new System.Drawing.Point(332, 64);
+            this.intNevTextBox.Location = new System.Drawing.Point(270, 45);
             this.intNevTextBox.Name = "intNevTextBox";
             this.intNevTextBox.Size = new System.Drawing.Size(290, 32);
             this.intNevTextBox.TabIndex = 1;
@@ -179,7 +176,7 @@
             // 
             this.intCimTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.intCimTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intCimTextBox.Location = new System.Drawing.Point(332, 102);
+            this.intCimTextBox.Location = new System.Drawing.Point(270, 83);
             this.intCimTextBox.Name = "intCimTextBox";
             this.intCimTextBox.Size = new System.Drawing.Size(290, 32);
             this.intCimTextBox.TabIndex = 2;
@@ -188,7 +185,7 @@
             // 
             this.csoportokSzamaNum.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.csoportokSzamaNum.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.csoportokSzamaNum.Location = new System.Drawing.Point(332, 140);
+            this.csoportokSzamaNum.Location = new System.Drawing.Point(270, 121);
             this.csoportokSzamaNum.Name = "csoportokSzamaNum";
             this.csoportokSzamaNum.Size = new System.Drawing.Size(162, 32);
             this.csoportokSzamaNum.TabIndex = 3;
@@ -196,12 +193,13 @@
             // mentesButton
             // 
             this.mentesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
+            this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mentesButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mentesButton.Location = new System.Drawing.Point(331, 259);
+            this.mentesButton.Location = new System.Drawing.Point(269, 240);
             this.mentesButton.Name = "mentesButton";
-            this.mentesButton.Size = new System.Drawing.Size(75, 23);
+            this.mentesButton.Size = new System.Drawing.Size(89, 34);
             this.mentesButton.TabIndex = 7;
-            this.mentesButton.Text = "MENTÉS";
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
@@ -210,7 +208,7 @@
             this.tobbTelephelyCombo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tobbTelephelyCombo.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tobbTelephelyCombo.FormattingEnabled = true;
-            this.tobbTelephelyCombo.Location = new System.Drawing.Point(331, 222);
+            this.tobbTelephelyCombo.Location = new System.Drawing.Point(269, 203);
             this.tobbTelephelyCombo.Name = "tobbTelephelyCombo";
             this.tobbTelephelyCombo.Size = new System.Drawing.Size(174, 31);
             this.tobbTelephelyCombo.TabIndex = 5;
@@ -221,7 +219,8 @@
             this.telephelyHozzadasaLabel.AutoSize = true;
             this.telephelyHozzadasaLabel.BackColor = System.Drawing.Color.Transparent;
             this.telephelyHozzadasaLabel.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telephelyHozzadasaLabel.Location = new System.Drawing.Point(122, 186);
+            this.telephelyHozzadasaLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.telephelyHozzadasaLabel.Location = new System.Drawing.Point(60, 167);
             this.telephelyHozzadasaLabel.Name = "telephelyHozzadasaLabel";
             this.telephelyHozzadasaLabel.Size = new System.Drawing.Size(172, 24);
             this.telephelyHozzadasaLabel.TabIndex = 14;
@@ -231,7 +230,7 @@
             // 
             this.pluszTelephelyTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pluszTelephelyTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pluszTelephelyTextBox.Location = new System.Drawing.Point(331, 184);
+            this.pluszTelephelyTextBox.Location = new System.Drawing.Point(269, 165);
             this.pluszTelephelyTextBox.Name = "pluszTelephelyTextBox";
             this.pluszTelephelyTextBox.Size = new System.Drawing.Size(290, 32);
             this.pluszTelephelyTextBox.TabIndex = 4;
@@ -239,12 +238,13 @@
             // hozzaadButton
             // 
             this.hozzaadButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.hozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hozzaadButton.BackgroundImage")));
+            this.hozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.hozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hozzaadButton.Location = new System.Drawing.Point(511, 222);
+            this.hozzaadButton.Location = new System.Drawing.Point(449, 203);
             this.hozzaadButton.Name = "hozzaadButton";
-            this.hozzaadButton.Size = new System.Drawing.Size(110, 32);
+            this.hozzaadButton.Size = new System.Drawing.Size(84, 32);
             this.hozzaadButton.TabIndex = 6;
-            this.hozzaadButton.Text = "Hozzáadás";
             this.hozzaadButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.hozzaadButton.UseVisualStyleBackColor = true;
             this.hozzaadButton.Click += new System.EventHandler(this.hozzaadButton_Click);
@@ -263,7 +263,8 @@
             // 
             this.groupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.CausesValidation = false;
             this.groupBox1.Controls.Add(this.label1);
@@ -279,37 +280,21 @@
             this.groupBox1.Controls.Add(this.intCimTextBox);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.groupBox1.Location = new System.Drawing.Point(12, 98);
+            this.groupBox1.Location = new System.Drawing.Point(73, 125);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(755, 370);
+            this.groupBox1.Size = new System.Drawing.Size(630, 332);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menüToolStripMenuItem,
             this.kezdőlapToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(774, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menüToolStripMenuItem
-            // 
-            this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sugóToolStripMenuItem});
-            this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
-            this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menüToolStripMenuItem.Text = "Menü";
-            // 
-            // sugóToolStripMenuItem
-            // 
-            this.sugóToolStripMenuItem.Name = "sugóToolStripMenuItem";
-            this.sugóToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.sugóToolStripMenuItem.Text = "Sugó";
-            this.sugóToolStripMenuItem.Click += new System.EventHandler(this.sugóToolStripMenuItem_Click);
             // 
             // kezdőlapToolStripMenuItem
             // 
@@ -323,6 +308,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(774, 496);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kimutatLabel);
@@ -331,6 +318,7 @@
             this.Controls.Add(this.csoportHozzaadButton);
             this.Controls.Add(this.intHozzaadButton);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "intezmeny";
@@ -368,8 +356,6 @@
         private System.Windows.Forms.Button gyermekKereseseButton;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menüToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sugóToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem kezdőlapToolStripMenuItem;
     }
 }

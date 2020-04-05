@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gyermekfelvetele));
-            this.sugóToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,6 +43,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.csoportKivalaszCombo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.mentesButton = new System.Windows.Forms.Button();
             this.gyVErvenyesLabel = new System.Windows.Forms.Label();
             this.HHvagyHHHCheck = new System.Windows.Forms.CheckBox();
             this.HHvagyHHHCombo = new System.Windows.Forms.ComboBox();
@@ -56,37 +55,21 @@
             this.HervenyesLabel = new System.Windows.Forms.Label();
             this.csoportHozzaadButton = new System.Windows.Forms.Button();
             this.intHozzaadButton = new System.Windows.Forms.Button();
-            this.mentesButton = new System.Windows.Forms.Button();
             this.gyermekKereseseButton = new System.Windows.Forms.Button();
             this.gyermekFelveteleButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // sugóToolStripMenuItem
-            // 
-            this.sugóToolStripMenuItem.Name = "sugóToolStripMenuItem";
-            this.sugóToolStripMenuItem.Size = new System.Drawing.Size(101, 22);
-            this.sugóToolStripMenuItem.Text = "Sugó";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menüToolStripMenuItem,
             this.kezdőlapToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(774, 24);
             this.menuStrip1.TabIndex = 26;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // menüToolStripMenuItem
-            // 
-            this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sugóToolStripMenuItem});
-            this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
-            this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menüToolStripMenuItem.Text = "Menü";
             // 
             // kezdőlapToolStripMenuItem
             // 
@@ -172,6 +155,7 @@
             this.groupBox1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.Controls.Add(this.ervenyesMask);
@@ -252,6 +236,20 @@
             this.label7.Size = new System.Drawing.Size(73, 24);
             this.label7.TabIndex = 33;
             this.label7.Text = "CSOPORT:";
+            // 
+            // mentesButton
+            // 
+            this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
+            this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.mentesButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold);
+            this.mentesButton.ForeColor = System.Drawing.Color.Aquamarine;
+            this.mentesButton.Location = new System.Drawing.Point(571, 292);
+            this.mentesButton.Name = "mentesButton";
+            this.mentesButton.Size = new System.Drawing.Size(80, 38);
+            this.mentesButton.TabIndex = 11;
+            this.mentesButton.UseVisualStyleBackColor = true;
+            this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
             // gyVErvenyesLabel
             // 
@@ -351,11 +349,10 @@
             this.csoportHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.csoportHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.csoportHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.csoportHozzaadButton.Location = new System.Drawing.Point(226, 30);
+            this.csoportHozzaadButton.Location = new System.Drawing.Point(226, 47);
             this.csoportHozzaadButton.Name = "csoportHozzaadButton";
             this.csoportHozzaadButton.Size = new System.Drawing.Size(190, 50);
             this.csoportHozzaadButton.TabIndex = 13;
-            this.csoportHozzaadButton.Text = "CSOPORTOK HOZZÁADÁSA";
             this.csoportHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.csoportHozzaadButton.UseVisualStyleBackColor = false;
             this.csoportHozzaadButton.Click += new System.EventHandler(this.csoportHozzaadButton_Click);
@@ -370,29 +367,13 @@
             this.intHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.intHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.intHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.intHozzaadButton.Location = new System.Drawing.Point(12, 30);
+            this.intHozzaadButton.Location = new System.Drawing.Point(12, 47);
             this.intHozzaadButton.Name = "intHozzaadButton";
             this.intHozzaadButton.Size = new System.Drawing.Size(190, 50);
             this.intHozzaadButton.TabIndex = 12;
-            this.intHozzaadButton.Text = "INTÉZMÉNY HOZZÁADÁSA";
             this.intHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.intHozzaadButton.UseVisualStyleBackColor = false;
             this.intHozzaadButton.Click += new System.EventHandler(this.intHozzaadButton_Click);
-            // 
-            // mentesButton
-            // 
-            this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
-            this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.mentesButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold);
-            this.mentesButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.mentesButton.Location = new System.Drawing.Point(497, 284);
-            this.mentesButton.Name = "mentesButton";
-            this.mentesButton.Size = new System.Drawing.Size(184, 50);
-            this.mentesButton.TabIndex = 11;
-            this.mentesButton.Text = "MENTÉS";
-            this.mentesButton.UseVisualStyleBackColor = true;
-            this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
             // gyermekKereseseButton
             // 
@@ -404,11 +385,10 @@
             this.gyermekKereseseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekKereseseButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekKereseseButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.gyermekKereseseButton.Location = new System.Drawing.Point(617, 30);
+            this.gyermekKereseseButton.Location = new System.Drawing.Point(617, 47);
             this.gyermekKereseseButton.Name = "gyermekKereseseButton";
             this.gyermekKereseseButton.Size = new System.Drawing.Size(150, 50);
             this.gyermekKereseseButton.TabIndex = 15;
-            this.gyermekKereseseButton.Text = "GYERMEK KERESÉSE";
             this.gyermekKereseseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekKereseseButton.UseVisualStyleBackColor = false;
             this.gyermekKereseseButton.Click += new System.EventHandler(this.gyermekKereseseButton_Click);
@@ -423,11 +403,10 @@
             this.gyermekFelveteleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekFelveteleButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekFelveteleButton.ForeColor = System.Drawing.Color.Aquamarine;
-            this.gyermekFelveteleButton.Location = new System.Drawing.Point(439, 30);
+            this.gyermekFelveteleButton.Location = new System.Drawing.Point(439, 47);
             this.gyermekFelveteleButton.Name = "gyermekFelveteleButton";
             this.gyermekFelveteleButton.Size = new System.Drawing.Size(150, 50);
             this.gyermekFelveteleButton.TabIndex = 14;
-            this.gyermekFelveteleButton.Text = "GYERMEK FELVÉTELE";
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
             // 
@@ -436,6 +415,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(774, 516);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.csoportHozzaadButton);
@@ -443,6 +424,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gyermekKereseseButton);
             this.Controls.Add(this.gyermekFelveteleButton);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(790, 555);
             this.MinimumSize = new System.Drawing.Size(790, 555);
@@ -461,10 +443,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ToolStripMenuItem sugóToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menüToolStripMenuItem;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;

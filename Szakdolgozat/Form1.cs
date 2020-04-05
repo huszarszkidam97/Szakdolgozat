@@ -94,5 +94,57 @@ namespace Szakdolgozat
             this.Hide();
             Program.form_gyermekKeres.Show();
         }
+
+        private void dolgozóToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.form_szerkeszt.Show();
+        }
+
+        private void intézményToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.intezmenyszerkeszt.Show();
+        }
+
+        private void csoportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.csoport_szerkeszt.Show();
+        }
+
+        private void Ujraindit_button_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            
+
+            string sql = "SELECT felhasznalo, jelszo FROM user";
+            using (var cmd = new MySqlCommand(sql, Program.conn))
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    if (textBox1.Text == (rdr["felhasznalo"].ToString()) && textBox2.Text == (rdr["jelszo"].ToString()))
+                    {
+                        menuStrip1.Visible = true;
+                        button1.Visible = true;
+                        button2.Visible = true;
+                        button3.Visible = true;
+                        button4.Visible = true;
+                        groupBox1.Visible = true;
+                        groupBox2.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    }
+                }
+            }
+
+        }
     }
 }

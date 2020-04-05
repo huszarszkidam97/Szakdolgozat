@@ -34,16 +34,20 @@
             this.Bezaras = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 74);
+            this.dataGridView1.Location = new System.Drawing.Point(234, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(750, 443);
+            this.dataGridView1.Size = new System.Drawing.Size(506, 357);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // comboBox1
             // 
@@ -53,7 +57,7 @@
             "Dolgozók",
             "Gyermekek",
             "Intézmény"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 12);
+            this.comboBox1.Location = new System.Drawing.Point(12, 38);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 2;
@@ -61,17 +65,18 @@
             // 
             // Bezaras
             // 
-            this.Bezaras.Location = new System.Drawing.Point(665, 10);
+            this.Bezaras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Bezaras.BackgroundImage")));
+            this.Bezaras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Bezaras.Location = new System.Drawing.Point(12, 350);
             this.Bezaras.Name = "Bezaras";
-            this.Bezaras.Size = new System.Drawing.Size(75, 23);
+            this.Bezaras.Size = new System.Drawing.Size(121, 45);
             this.Bezaras.TabIndex = 4;
-            this.Bezaras.Text = "Bezárás";
             this.Bezaras.UseVisualStyleBackColor = true;
             this.Bezaras.Click += new System.EventHandler(this.Bezaras_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(139, 12);
+            this.button1.Location = new System.Drawing.Point(12, 92);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 21);
             this.button1.TabIndex = 3;
@@ -84,30 +89,46 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "Összes"});
-            this.comboBox2.Location = new System.Drawing.Point(12, 47);
+            this.comboBox2.Location = new System.Drawing.Point(12, 65);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 21);
             this.comboBox2.TabIndex = 5;
             this.comboBox2.Visible = false;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(147, 20);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Text = "Keresés....";
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Kimutatás
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 518);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(755, 418);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Bezaras);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(771, 457);
+            this.MinimumSize = new System.Drawing.Size(771, 457);
             this.Name = "Kimutatás";
             this.Text = "Kimutatas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Kimutatás_FormClosing);
             this.Load += new System.EventHandler(this.Kimutatas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,5 +138,6 @@
         private System.Windows.Forms.Button Bezaras;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

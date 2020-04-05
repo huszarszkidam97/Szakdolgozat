@@ -15,6 +15,7 @@ namespace Szakdolgozat
     public partial class Kimutatás : Form
     {
         static string sql = "";
+        static int oszlop = 1;
         public Kimutatás()
         {
             InitializeComponent();
@@ -38,11 +39,24 @@ namespace Szakdolgozat
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            textBox1.Text = "Keresés....";
+            if (comboBox1.SelectedItem.ToString() == "Csoportok")
+                oszlop = 0;
+            else
+                oszlop = 1;
+
+            if (comboBox1.SelectedItem.ToString() == "Intézmény")
+                textBox1.Visible = false;
+            else
+                textBox1.Visible = true;
+
+
             if (comboBox1.SelectedItem.ToString() == "Csoportok")
             {
                 comboBox2.Visible = false;
                 dataGridView1.Columns.Clear();
                 dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Add("Azon", "Azonosító");
                 dataGridView1.Columns.Add("Csoport Neve", "Csoport Neve");
                 dataGridView1.Columns.Add("Csoport Neve", "Telephely");
                 dataGridView1.Columns.Add("Csoport Neve", "Csoport Létszám");
@@ -53,12 +67,16 @@ namespace Szakdolgozat
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        string csoportneve = rdr.GetString(0);
-                        string telephely = rdr.GetString(1);
-                        int csoportLetszam = rdr.GetInt32(2);
-                        dataGridView1.Rows.Add(csoportneve, telephely, csoportLetszam);
+                        string azon = rdr.GetString(0);
+                        string csoportneve = rdr.GetString(1);
+                        string telephely = rdr.GetString(2);
+                        int csoportLetszam = rdr.GetInt32(3);
+                        dataGridView1.Rows.Add(azon, csoportneve, telephely, csoportLetszam);
                     }
                 }
+
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoResizeRows();
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
             if (comboBox1.SelectedItem.ToString() == "Intézmény")
@@ -84,6 +102,9 @@ namespace Szakdolgozat
                         dataGridView1.Rows.Add(IntezmenyNeve, Telephely, CsoportokSzama, IntezmenyCime);
                     }
                 }
+
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoResizeRows();
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
             if (comboBox1.SelectedItem.ToString() == "Dolgozók")
@@ -91,6 +112,7 @@ namespace Szakdolgozat
                 comboBox2.Visible = false;
                 dataGridView1.Columns.Clear();
                 dataGridView1.Rows.Clear();
+                dataGridView1.Columns.Add("Azonosító", "Azon");
                 dataGridView1.Columns.Add("Dolgozo Neve", "Neve");
                 dataGridView1.Columns.Add("Beosztása", "Beosztása");
                 dataGridView1.Columns.Add("Munkavégzés Helye", "Munkavégzés Helye");
@@ -102,13 +124,16 @@ namespace Szakdolgozat
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        string dolgozoNeve = rdr.GetString(0);
-                        string dolgozoBeosztasa = rdr.GetString(1);
-                        string munkavegzesHelye = rdr.GetString(2);
-                        string csoport = rdr.GetString(3);
-                        dataGridView1.Rows.Add(dolgozoNeve, dolgozoBeosztasa, munkavegzesHelye, csoport);
+                        string azon = rdr.GetString(0);
+                        string dolgozoNeve = rdr.GetString(1);
+                        string dolgozoBeosztasa = rdr.GetString(2);
+                        string munkavegzesHelye = rdr.GetString(3);
+                        string csoport = rdr.GetString(4);
+                        dataGridView1.Rows.Add(azon, dolgozoNeve, dolgozoBeosztasa, munkavegzesHelye, csoport);
                     }
                 }
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.AutoResizeRows();
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
             if (comboBox1.SelectedItem.ToString() == "Gyermekek")
@@ -116,6 +141,8 @@ namespace Szakdolgozat
                 comboBox2.Visible = true;
                 dataGridView1.Columns.Clear();
                 dataGridView1.Rows.Clear();
+                dataGridView1.AutoResizeColumns();
+                dataGridView1.Columns.Add("Azonosító", "Azon");
                 dataGridView1.Columns.Add("Gyermek Neve", "Neve");
                 dataGridView1.Columns.Add("Születési ideje", "Születési Ideje");
                 dataGridView1.Columns.Add("OM Azonosító", "OM Azonosító");
@@ -138,15 +165,16 @@ namespace Szakdolgozat
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        string nev = rdr.GetString(0);
-                        string szuletesiIdo = Convert.ToDateTime(rdr.GetString(1)).ToShortDateString();
-                        string omAzon = rdr.GetString(2);
-                        string anyjaNeve = rdr.GetString(3);
-                        string gyVHatarozatSzama = rdr.GetString(4);
-                        string gyVervenyes = rdr.GetString(5);
-                        string hhVAGYhhh = rdr.GetString(6);
-                        string ervenyes = rdr.GetString(7);
-                        string csoport = rdr.GetString(8);
+                        string azon = rdr.GetString(0);
+                        string nev = rdr.GetString(1);
+                        string szuletesiIdo = Convert.ToDateTime(rdr.GetString(2)).ToShortDateString();
+                        string omAzon = rdr.GetString(3);
+                        string anyjaNeve = rdr.GetString(4);
+                        string gyVHatarozatSzama = rdr.GetString(5);
+                        string gyVervenyes = rdr.GetString(6);
+                        string hhVAGYhhh = rdr.GetString(7);
+                        string ervenyes = rdr.GetString(8);
+                        string csoport = rdr.GetString(9);
                         if (gyVervenyes == "0000-00-00")
                         {
                             gyVervenyes = nincs;
@@ -155,12 +183,19 @@ namespace Szakdolgozat
                         {
                             ervenyes = nincs;
                         }
-                        dataGridView1.Rows.Add(nev, szuletesiIdo, omAzon, anyjaNeve, gyVHatarozatSzama, gyVervenyes, hhVAGYhhh, ervenyes, csoport);
+                        dataGridView1.Rows.Add(azon, nev, szuletesiIdo, omAzon, anyjaNeve, gyVHatarozatSzama, gyVervenyes, hhVAGYhhh, ervenyes, csoport);
 
                     }
+                    dataGridView1.AutoResizeColumns();
+                    dataGridView1.AutoResizeRows();
                 }
                 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             }
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoResizeRows();
+            dataGridView1.AutoResizeColumns();
+            dataGridView1.Refresh();
         }
 
         private void Bezaras_Click(object sender, EventArgs e)
@@ -192,24 +227,25 @@ namespace Szakdolgozat
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            copyAlltoClipboard();
-            Microsoft.Office.Interop.Excel.Application xlexcel;
-            Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
-            Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
-            object misValue = System.Reflection.Missing.Value;
-            xlexcel = new Microsoft.Office.Interop.Excel.Application();
-            xlexcel.Visible = true;
-            xlWorkBook = xlexcel.Workbooks.Add(misValue);
-            xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
-            CR.Select();
-            xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
+                copyAlltoClipboard();
+                Microsoft.Office.Interop.Excel.Application xlexcel;
+                Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+                Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+                object misValue = System.Reflection.Missing.Value;
+                xlexcel = new Microsoft.Office.Interop.Excel.Application();
+                xlexcel.Visible = true;
+                xlWorkBook = xlexcel.Workbooks.Add(misValue);
+                xlWorkSheet = (Microsoft.Office.Interop.Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+                Microsoft.Office.Interop.Excel.Range CR = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.Cells[1, 1];
+                CR.Select();
+                xlWorkSheet.PasteSpecial(CR, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, true);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Add("Azonosító", "Azon");
             dataGridView1.Columns.Add("Gyermek Neve", "Neve");
             dataGridView1.Columns.Add("Születési ideje", "Születési Ideje");
             dataGridView1.Columns.Add("OM Azonosító", "OM Azonosító");
@@ -219,6 +255,7 @@ namespace Szakdolgozat
             dataGridView1.Columns.Add("HH vagy HHH", "HH vagy HHH");
             dataGridView1.Columns.Add("Érvényes", "Érvényes");
             dataGridView1.Columns.Add("Csoport", "Csoport");
+
             //Gyermekek feltöltése/////////////////////////////////////////////////////////////////////////////////////////////
             if (comboBox2.SelectedItem.ToString() == "Összes")
             {
@@ -233,15 +270,16 @@ namespace Szakdolgozat
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    string nev = rdr.GetString(0);
-                    string szuletesiIdo = Convert.ToDateTime(rdr.GetString(1)).ToShortDateString();
-                    string omAzon = rdr.GetString(2);
-                    string anyjaNeve = rdr.GetString(3);
-                    string gyVHatarozatSzama = rdr.GetString(4);
-                    string gyVervenyes = rdr.GetString(5);
-                    string hhVAGYhhh = rdr.GetString(6);
-                    string ervenyes = rdr.GetString(7);
-                    string csoport = rdr.GetString(8);
+                    string azon = rdr.GetString(0);
+                    string nev = rdr.GetString(1);
+                    string szuletesiIdo = Convert.ToDateTime(rdr.GetString(2)).ToShortDateString();
+                    string omAzon = rdr.GetString(3);
+                    string anyjaNeve = rdr.GetString(4);
+                    string gyVHatarozatSzama = rdr.GetString(5);
+                    string gyVervenyes = rdr.GetString(6);
+                    string hhVAGYhhh = rdr.GetString(7);
+                    string ervenyes = rdr.GetString(8);
+                    string csoport = rdr.GetString(9);
                     if (gyVervenyes == "0000-00-00")
                     {
                         gyVervenyes = nincs;
@@ -250,11 +288,60 @@ namespace Szakdolgozat
                     {
                         ervenyes = nincs;
                     }
-                    dataGridView1.Rows.Add(nev, szuletesiIdo, omAzon, anyjaNeve, gyVHatarozatSzama, gyVervenyes, hhVAGYhhh, ervenyes, csoport);
+                    dataGridView1.Rows.Add(azon, nev, szuletesiIdo, omAzon, anyjaNeve, gyVHatarozatSzama, gyVervenyes, hhVAGYhhh, ervenyes, csoport);
 
                 }
             }
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            dataGridView1.AutoResizeRows();
+            dataGridView1.AutoResizeColumns();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+            string searchValue = textBox1.Text;
+            dataGridView1.ClearSelection();
+            if (searchValue.Length != 0)
+            {
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                try
+                {
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string tesztNev = "";
+                        if (searchValue.Length <= row.Cells[oszlop].Value.ToString().Length)
+                            for (int i = 0; i < searchValue.Length; i++)
+                            {
+                                tesztNev += row.Cells[oszlop].Value.ToString()[i];
+                            }
+                        if (tesztNev == searchValue)
+                        {
+                            dataGridView1.Rows[row.Index].Selected = true;
+                        }
+                    }
+                }
+                catch
+                {
+                    return;
+                }
+            }
+        }
+        bool elsokatt = false;
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            if (elsokatt == false)
+            {
+                textBox1.Text = "";
+                elsokatt = true;
+            }
         }
     }
 }
