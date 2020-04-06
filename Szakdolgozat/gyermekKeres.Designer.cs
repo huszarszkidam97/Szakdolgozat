@@ -61,6 +61,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.szerkesztButton = new System.Windows.Forms.Button();
+            this.frissit_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -218,6 +219,7 @@
             // 
             this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
             this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.mentesButton.Location = new System.Drawing.Point(489, 284);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(101, 49);
@@ -442,6 +444,21 @@
             this.szerkesztButton.UseVisualStyleBackColor = false;
             this.szerkesztButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // frissit_Button
+            // 
+            this.frissit_Button.BackColor = System.Drawing.Color.Transparent;
+            this.frissit_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("frissit_Button.BackgroundImage")));
+            this.frissit_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.frissit_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.frissit_Button.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.frissit_Button.Location = new System.Drawing.Point(119, 460);
+            this.frissit_Button.Name = "frissit_Button";
+            this.frissit_Button.Size = new System.Drawing.Size(103, 44);
+            this.frissit_Button.TabIndex = 37;
+            this.frissit_Button.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.frissit_Button.UseVisualStyleBackColor = false;
+            this.frissit_Button.Click += new System.EventHandler(this.frissit_Button_Click);
+            // 
             // gyermekKeres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -450,6 +467,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(974, 516);
+            this.Controls.Add(this.frissit_Button);
             this.Controls.Add(this.szerkesztButton);
             this.Controls.Add(this.csoportSelectCombo);
             this.Controls.Add(this.listView1);
@@ -510,5 +528,6 @@
         private System.Windows.Forms.ComboBox csoportSelectCombo;
         private System.Windows.Forms.Button szerkesztButton;
         private System.Windows.Forms.Button mentesButton;
+        private System.Windows.Forms.Button frissit_Button;
     }
 }

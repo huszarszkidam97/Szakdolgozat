@@ -211,7 +211,6 @@ namespace Szakdolgozat
             if (dlgresult == DialogResult.No)
             {
                 e.Cancel = true;
-
             }
             else
             {
@@ -342,6 +341,18 @@ namespace Szakdolgozat
                 textBox1.Text = "";
                 elsokatt = true;
             }
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Items.Count > 0)
+                comboBox1.SelectedIndex = 0;
+            if (comboBox2.Items.Count > 0)
+                comboBox2.SelectedIndex = 0;
+            dataGridView1.Columns.Clear();
+            dataGridView1.Rows.Clear();
+
+
+
         }
     }
 }

@@ -266,6 +266,7 @@
             this.hozzaadButton.BackColor = System.Drawing.Color.Transparent;
             this.hozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hozzaadButton.BackgroundImage")));
             this.hozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.hozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hozzaadButton.Location = new System.Drawing.Point(499, 233);
             this.hozzaadButton.Name = "hozzaadButton";
@@ -323,6 +324,7 @@
             this.mentesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
             this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.mentesButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mentesButton.Location = new System.Drawing.Point(319, 272);
             this.mentesButton.Name = "mentesButton";

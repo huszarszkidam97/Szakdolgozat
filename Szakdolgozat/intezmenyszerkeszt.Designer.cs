@@ -59,6 +59,7 @@
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(12, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 41);
@@ -96,6 +97,7 @@
             // 
             this.hozzaad_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hozzaad_Button.BackgroundImage")));
             this.hozzaad_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.hozzaad_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hozzaad_Button.Location = new System.Drawing.Point(436, 185);
             this.hozzaad_Button.Name = "hozzaad_Button";
             this.hozzaad_Button.Size = new System.Drawing.Size(67, 39);
@@ -123,6 +125,7 @@
             // 
             this.telephelyTorlese_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("telephelyTorlese_button.BackgroundImage")));
             this.telephelyTorlese_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.telephelyTorlese_button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.telephelyTorlese_button.Location = new System.Drawing.Point(323, 155);
             this.telephelyTorlese_button.Name = "telephelyTorlese_button";
             this.telephelyTorlese_button.Size = new System.Drawing.Size(67, 39);
@@ -201,12 +204,14 @@
             this.dolgozókToolStripMenuItem.Name = "dolgozókToolStripMenuItem";
             this.dolgozókToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.dolgozókToolStripMenuItem.Text = "Dolgozók";
+            this.dolgozókToolStripMenuItem.Click += new System.EventHandler(this.dolgozókToolStripMenuItem_Click);
             // 
             // csoportToolStripMenuItem
             // 
             this.csoportToolStripMenuItem.Name = "csoportToolStripMenuItem";
             this.csoportToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.csoportToolStripMenuItem.Text = "Csoport";
+            this.csoportToolStripMenuItem.Click += new System.EventHandler(this.csoportToolStripMenuItem_Click);
             // 
             // intézményToolStripMenuItem
             // 
@@ -229,12 +234,14 @@
             this.kezdőlapToolStripMenuItem.Name = "kezdőlapToolStripMenuItem";
             this.kezdőlapToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.kezdőlapToolStripMenuItem.Text = "Kezdőlap";
+            this.kezdőlapToolStripMenuItem.Click += new System.EventHandler(this.kezdőlapToolStripMenuItem_Click);
             // 
             // mentesButton
             // 
             this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
             this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mentesButton.Enabled = false;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.mentesButton.Location = new System.Drawing.Point(554, 329);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(75, 41);

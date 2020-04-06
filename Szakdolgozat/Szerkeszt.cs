@@ -42,8 +42,24 @@ namespace Szakdolgozat
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
+
                     csoport_Box.Items.Add(rdr.GetString(0));
                 }
+            }
+
+            List<string> Lista = new List<string>();
+            foreach (var item in csoport_Box.Items)
+            {
+                if (item.ToString().Length > 0 || item.ToString() != " ")
+                {
+                    Lista.Add(item.ToString());
+                }
+            }
+            csoport_Box.Items.Clear();
+            foreach (var item in Lista)
+            {
+                if (item.ToString() != " ")
+                csoport_Box.Items.Add(item);
             }
         }
 
@@ -93,43 +109,98 @@ namespace Szakdolgozat
 
         private void mentesButton_Click(object sender, EventArgs e)
         {
-            try
+            bool ellenorzes = true;
+            string szoveg = "";
+            dolgozoneve_Text.BackColor = Color.White;
+            beosztas_Text.BackColor = Color.White;
+            //Ellenőrzések
+
+            //Dolgozó Neve Ellenőrzés
+            if (string.IsNullOrWhiteSpace(dolgozoneve_Text.Text) || dolgozoneve_Text.Text.Length > 100)
             {
-                string nev = dolgozoneve_Text.Text;
-                string beosztas = beosztas_Text.Text;
-                string munkavegzesHelye = "";
-                string sql = "SELECT telephely FROM csoportok WHERE csoportNeve ='" + csoport_Box.SelectedItem.ToString() + "'";
-                using (var cmd = new MySqlCommand(sql, Program.conn))
+                dolgozoneve_Text.BackColor = Color.Red;
+                ellenorzes = false;
+                szoveg = "Pirossal jelölt mezők hibásak!";
+            }
+            else
+            {
+                for (int i = 0; i < dolgozoneve_Text.Text.Length; i++)
                 {
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
+                    if (Char.IsDigit(dolgozoneve_Text.Text[i]))
                     {
-                        munkavegzesHelye = rdr.GetString(0);
+                        dolgozoneve_Text.BackColor = Color.Red;
+                        ellenorzes = false;
+                        szoveg = "Pirossal jelölt mezők hibásak!";
                     }
                 }
-                string csoport = csoport_Box.SelectedItem.ToString();
-
-
-                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
-                Program.sqlCommand.Connection = Program.conn;
-
-
-
-                Program.sqlCommand.CommandText = "UPDATE `dolgozok` SET dolgozoNeve = @1, dolgozoBeosztasa = @2, munkavegzesHelye = @3, csoport = @4 WHERE (dolgozoAzon = '" + azon + "')";
-
-
-                Program.sqlCommand.Parameters.AddWithValue("@1", nev);
-                Program.sqlCommand.Parameters.AddWithValue("@2", beosztas);
-                Program.sqlCommand.Parameters.AddWithValue("@3", munkavegzesHelye);
-                Program.sqlCommand.Parameters.AddWithValue("@4", csoport);
-                Program.sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Sikeres mentés!");
             }
-            catch (Exception)
+            //
+
+            //Dolgozó Beosztása Ellenőrzés
+            if (string.IsNullOrWhiteSpace(beosztas_Text.Text) || beosztas_Text.Text.Length > 100)
             {
-                MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                beosztas_Text.BackColor = Color.Red;
+                ellenorzes = false;
+                szoveg = "Pirossal jelölt mezők hibásak!";
             }
+            else
+            {
+                for (int i = 0; i < beosztas_Text.Text.Length; i++)
+                {
+                    if (Char.IsDigit(beosztas_Text.Text[i]))
+                    {
+                        beosztas_Text.BackColor = Color.Red;
+                        ellenorzes = false;
+                        szoveg = "Pirossal jelölt mezők hibásak!";
+                    }
+                }
+            }
+            //
 
+            //
+            if (ellenorzes)
+            {
+                try
+                {
+                    string nev = dolgozoneve_Text.Text;
+                    string beosztas = beosztas_Text.Text;
+                    string munkavegzesHelye = "";
+                    string sql = "SELECT telephely FROM csoportok WHERE csoportNeve ='" + csoport_Box.SelectedItem.ToString() + "'";
+                    using (var cmd = new MySqlCommand(sql, Program.conn))
+                    {
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            munkavegzesHelye = rdr.GetString(0);
+                        }
+                    }
+                    string csoport = csoport_Box.SelectedItem.ToString();
+
+
+                    Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                    Program.sqlCommand.Connection = Program.conn;
+
+
+
+                    Program.sqlCommand.CommandText = "UPDATE `dolgozok` SET dolgozoNeve = @1, dolgozoBeosztasa = @2, munkavegzesHelye = @3, csoport = @4 WHERE (dolgozoAzon = '" + azon + "')";
+
+
+                    Program.sqlCommand.Parameters.AddWithValue("@1", nev);
+                    Program.sqlCommand.Parameters.AddWithValue("@2", beosztas);
+                    Program.sqlCommand.Parameters.AddWithValue("@3", munkavegzesHelye);
+                    Program.sqlCommand.Parameters.AddWithValue("@4", csoport);
+                    Program.sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sikeres mentés!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show(szoveg);
+            }
         }
 
 

@@ -161,10 +161,6 @@ namespace Szakdolgozat
                     string szoveg = "";
                     groupBox1.Enabled = false;
                     szoveg = "Csoportok száma elérte a maximális értéket!\nLétrehozott csoportok száma: " + keszCsoportCombo.Items.Count+"\n";
-                    foreach (var item in keszCsoportok)
-                    {
-                        szoveg += item+"\n";
-                    }
                     MessageBox.Show(szoveg);
                 }
                 else
@@ -264,10 +260,6 @@ namespace Szakdolgozat
                 string szoveg = "";
                 groupBox1.Enabled = false;
                 szoveg = "Csoportok száma elérte a maximális értéket!\nLétrehozott csoportok száma: " + keszCsoportCombo.Items.Count+"\n";
-                foreach (var item in keszCsoportok)
-                {
-                    szoveg += item + "\n";
-                }
                 MessageBox.Show(szoveg);
             }
             else
@@ -316,7 +308,7 @@ namespace Szakdolgozat
             }
             else
             {
-                return;
+                Application.ExitThread();
             }
         }
     }

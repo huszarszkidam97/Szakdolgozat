@@ -43,6 +43,21 @@ namespace Szakdolgozat
                     }
                 }
             }
+
+            List<string> Lista = new List<string>();
+            foreach (var item in telephely_Box.Items)
+            {
+                if (item.ToString().Length > 0 || item.ToString() != " ")
+                {
+                    Lista.Add(item.ToString());
+                }
+            }
+            telephely_Box.Items.Clear();
+            foreach (var item in Lista)
+            {
+                if (item.ToString() != " ")
+                    telephely_Box.Items.Add(item);
+            }
         }
 
         int azon = 0;
@@ -83,6 +98,7 @@ namespace Szakdolgozat
                         csoportLetszam_Text.Text = rdr.GetString(3);
                         azon = Convert.ToInt32(rdr.GetString(0));
                         telephely_Box.SelectedItem = rdr.GetString(2);
+                        MessageBox.Show(rdr.GetString(2));
                     }
                 }
             }
@@ -107,7 +123,7 @@ namespace Szakdolgozat
             }
             else
             {
-                Environment.Exit(0);
+                Application.ExitThread();
             }
         }
 

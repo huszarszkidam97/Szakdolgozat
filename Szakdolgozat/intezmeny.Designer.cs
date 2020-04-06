@@ -40,12 +40,12 @@
             this.intCimTextBox = new System.Windows.Forms.TextBox();
             this.csoportokSzamaNum = new System.Windows.Forms.NumericUpDown();
             this.mentesButton = new System.Windows.Forms.Button();
-            this.tobbTelephelyCombo = new System.Windows.Forms.ComboBox();
             this.telephelyHozzadasaLabel = new System.Windows.Forms.Label();
             this.pluszTelephelyTextBox = new System.Windows.Forms.TextBox();
             this.hozzaadButton = new System.Windows.Forms.Button();
             this.kimutatLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tobbTelephelyCombo = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.csoportokSzamaNum)).BeginInit();
@@ -195,6 +195,7 @@
             this.mentesButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
             this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.mentesButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mentesButton.Location = new System.Drawing.Point(269, 240);
             this.mentesButton.Name = "mentesButton";
@@ -202,16 +203,6 @@
             this.mentesButton.TabIndex = 7;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
-            // 
-            // tobbTelephelyCombo
-            // 
-            this.tobbTelephelyCombo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tobbTelephelyCombo.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tobbTelephelyCombo.FormattingEnabled = true;
-            this.tobbTelephelyCombo.Location = new System.Drawing.Point(269, 203);
-            this.tobbTelephelyCombo.Name = "tobbTelephelyCombo";
-            this.tobbTelephelyCombo.Size = new System.Drawing.Size(174, 31);
-            this.tobbTelephelyCombo.TabIndex = 5;
             // 
             // telephelyHozzadasaLabel
             // 
@@ -240,6 +231,7 @@
             this.hozzaadButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.hozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("hozzaadButton.BackgroundImage")));
             this.hozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.hozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.hozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hozzaadButton.Location = new System.Drawing.Point(449, 203);
             this.hozzaadButton.Name = "hozzaadButton";
@@ -267,12 +259,12 @@
             this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.groupBox1.CausesValidation = false;
+            this.groupBox1.Controls.Add(this.tobbTelephelyCombo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.hozzaadButton);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.pluszTelephelyTextBox);
-            this.groupBox1.Controls.Add(this.tobbTelephelyCombo);
             this.groupBox1.Controls.Add(this.telephelyHozzadasaLabel);
             this.groupBox1.Controls.Add(this.mentesButton);
             this.groupBox1.Controls.Add(this.csoportokSzamaNum);
@@ -285,6 +277,14 @@
             this.groupBox1.Size = new System.Drawing.Size(630, 332);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
+            // 
+            // tobbTelephelyCombo
+            // 
+            this.tobbTelephelyCombo.FormattingEnabled = true;
+            this.tobbTelephelyCombo.Location = new System.Drawing.Point(270, 207);
+            this.tobbTelephelyCombo.Name = "tobbTelephelyCombo";
+            this.tobbTelephelyCombo.Size = new System.Drawing.Size(147, 21);
+            this.tobbTelephelyCombo.TabIndex = 15;
             // 
             // menuStrip1
             // 
@@ -348,7 +348,6 @@
         private System.Windows.Forms.TextBox intCimTextBox;
         private System.Windows.Forms.NumericUpDown csoportokSzamaNum;
         private System.Windows.Forms.Button mentesButton;
-        private System.Windows.Forms.ComboBox tobbTelephelyCombo;
         private System.Windows.Forms.Label telephelyHozzadasaLabel;
         private System.Windows.Forms.TextBox pluszTelephelyTextBox;
         private System.Windows.Forms.Button hozzaadButton;
@@ -357,5 +356,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem kezdőlapToolStripMenuItem;
+        private System.Windows.Forms.ComboBox tobbTelephelyCombo;
     }
 }

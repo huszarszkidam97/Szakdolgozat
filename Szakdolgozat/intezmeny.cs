@@ -38,12 +38,14 @@ namespace Szakdolgozat
             {
                 telephelyek.Add(pluszTelephelyTextBox.Text);
                 tobbTelephelyCombo.Items.Add(pluszTelephelyTextBox.Text.ToString());
+                MessageBox.Show("Hozzádva!");
             }
             else
             {
                 MessageBox.Show("A mező üres!");
             }
         }
+        bool ujraindit = true;
         private void mentesButton_Click(object sender, EventArgs e)
         {
             intNevTextBox.BackColor = Color.White;
@@ -124,9 +126,9 @@ namespace Szakdolgozat
                     Program.sqlCommand.Parameters.Add("csoportokSzama", MySqlDbType.Int32).Value = csoportokSzama;
                     Program.sqlCommand.Parameters.Add("telephelyEk", MySqlDbType.VarChar).Value = telephelyEk;
                     Program.sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Sikeres mentés!");
-                    this.Hide();
-                    Program.form_nyito.Show();
+                    MessageBox.Show("Sikeres mentés!\nÚjraindítás szükséges....");
+                    ujraindit = false;
+                    Application.Restart();
                 }
                 catch
                 {
@@ -154,9 +156,9 @@ namespace Szakdolgozat
                 while (rdr.Read())
                 {
                     IntezmenyNeve = rdr.GetString(0);
-                    Telephely = rdr.GetString(1);
+                    IntezmenyCime = rdr.GetString(1);
                     CsoportokSzama = rdr.GetString(2);
-                    IntezmenyCime = rdr.GetString(3);
+                    Telephely = rdr.GetString(3);
                 }
             }
             intHozzaadButton.Enabled = false;
@@ -196,18 +198,21 @@ namespace Szakdolgozat
 
         private void intezmeny_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dlgresult = MessageBox.Show("Biztosan kilép a programból?",
-                               "Program bezárása",
-                               MessageBoxButtons.YesNo,
-                               MessageBoxIcon.Information);
-            if (dlgresult == DialogResult.No)
+            if (ujraindit)
             {
-                e.Cancel = true;
+                DialogResult dlgresult = MessageBox.Show("Biztosan kilép a programból?",
+                                   "Program bezárása",
+                                   MessageBoxButtons.YesNo,
+                                   MessageBoxIcon.Information);
+                if (dlgresult == DialogResult.No)
+                {
+                    e.Cancel = true;
 
-            }
-            else
-            {
-                return;
+                }
+                else
+                {
+                    Application.ExitThread();
+                }
             }
         }
     }

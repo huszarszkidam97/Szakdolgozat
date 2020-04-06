@@ -55,6 +55,7 @@
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Enabled = false;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(156, 36);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 41);
@@ -175,6 +176,7 @@
             this.mentesButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mentesButton.BackgroundImage")));
             this.mentesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mentesButton.Enabled = false;
+            this.mentesButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.mentesButton.Location = new System.Drawing.Point(542, 36);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(75, 41);

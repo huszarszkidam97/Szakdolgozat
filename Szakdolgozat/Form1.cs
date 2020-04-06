@@ -32,25 +32,22 @@ namespace Szakdolgozat
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Refresh();
-            string sql = "SELECT * FROM intezmeny";
-            using (var cmd = new MySqlCommand(sql, Program.conn))
+
+            string sql2 = "SELECT * FROM intezmeny";
+            using (var cmd2 = new MySqlCommand(sql2, Program.conn))
             {
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
+                MySqlDataReader rdr2 = cmd2.ExecuteReader();
+                while (rdr2.Read())
                 {
-                    intNevTextBox.Text = rdr.GetString(0);
-                    telephelyekTextBox.Text = rdr.GetString(3);
-                    csoportokSzamaTextBox.Text = rdr.GetInt32(2).ToString();
-                    intCimTextBox.Text = rdr.GetString(1);
+                    intNevTextBox.Text = rdr2.GetString(0);
+                    telephelyekTextBox.Text = rdr2.GetString(3);
+                    csoportokSzamaTextBox.Text = rdr2.GetInt32(2).ToString();
+                    intCimTextBox.Text = rdr2.GetString(1);
                 }
             }
             if (intNevTextBox.Text == "" || telephelyekTextBox.Text == "" || csoportokSzamaTextBox.Text == "" || intCimTextBox.Text == "")
             {
-                if (MessageBox.Show("Még nem adta hozzá az intézményt!", "Tovább az intézmény hozzáadásához", MessageBoxButtons.OK) == DialogResult.OK)
-                {
-                    this.Hide();
-                    Program.form_intezmenyek.Show();
-                }
+                label7.Visible = true;
             }
         }
 
@@ -81,11 +78,10 @@ namespace Szakdolgozat
             if (dlgresult == DialogResult.No)
             {
                 e.Cancel = true;
-
             }
             else
             {
-                return;
+                Application.ExitThread();
             }
         }
 
@@ -120,8 +116,8 @@ namespace Szakdolgozat
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
 
+            bool mehet = false;
             string sql = "SELECT felhasznalo, jelszo FROM user";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
@@ -137,6 +133,7 @@ namespace Szakdolgozat
                         button4.Visible = true;
                         groupBox1.Visible = true;
                         groupBox2.Visible = false;
+                        mehet = true;
                     }
                     else
                     {
@@ -144,7 +141,61 @@ namespace Szakdolgozat
                     }
                 }
             }
+            if (mehet)
+            {
+                this.Refresh();
 
+                string sql2 = "SELECT * FROM intezmeny";
+                using (var cmd2 = new MySqlCommand(sql2, Program.conn))
+                {
+                    MySqlDataReader rdr2 = cmd2.ExecuteReader();
+                    while (rdr2.Read())
+                    {
+                        intNevTextBox.Text = rdr2.GetString(0);
+                        telephelyekTextBox.Text = rdr2.GetString(3);
+                        csoportokSzamaTextBox.Text = rdr2.GetInt32(2).ToString();
+                        intCimTextBox.Text = rdr2.GetString(1);
+                    }
+                }
+                if (intNevTextBox.Text == "" || telephelyekTextBox.Text == "" || csoportokSzamaTextBox.Text == "" || intCimTextBox.Text == "")
+                {
+                    label7.Visible = true;
+                }
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(e.KeyChar) == 13)
+            {
+                string sql = "SELECT felhasznalo, jelszo FROM user";
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        if (textBox1.Text == (rdr["felhasznalo"].ToString()) && textBox2.Text == (rdr["jelszo"].ToString()))
+                        {
+                            menuStrip1.Visible = true;
+                            button1.Visible = true;
+                            button2.Visible = true;
+                            button3.Visible = true;
+                            button4.Visible = true;
+                            groupBox1.Visible = true;
+                            groupBox2.Visible = false;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

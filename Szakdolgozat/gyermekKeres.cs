@@ -73,7 +73,7 @@ namespace Szakdolgozat
             }
             else
             {
-                Environment.Exit(1);
+                Application.ExitThread();
             }
         }
 
@@ -86,6 +86,7 @@ namespace Szakdolgozat
             gyVervenyesText.Visible = false;
             HHHvagyHHErvenyesText.Visible = false;
             groupBox1.Enabled = false;
+            string azon = "";
             string gyermekNeve = "";
             string szulIdo = "";
             string omazon = "";
@@ -115,14 +116,20 @@ namespace Szakdolgozat
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        gyermekNeve = rdr.GetString(0);
-                        szulIdo = rdr.GetString(1);
-                        omazon = rdr.GetString(2);
-                        anyjaNeve = rdr.GetString(3);
-                        gyV = rdr.GetString(4);
+                        azon = rdr.GetString(0);
+                        gyermekNeve = rdr.GetString(1);
+                        for (int i = 0; i < rdr.GetString(2).Length; i++)
+                        {
+                            if (i < 12)
+                            szulIdo += rdr.GetString(2)[i];
+                        }
+                        
+                        omazon = rdr.GetString(3);
+                        anyjaNeve = rdr.GetString(4);
+                        gyV = rdr.GetString(5);
                         try
                         {
-                            gyVErvenyes = rdr.GetString(5);
+                            gyVErvenyes = rdr.GetString(6);
                         }
                         catch
                         {
@@ -130,16 +137,16 @@ namespace Szakdolgozat
                         }
 
 
-                        hhVAGYhhh = rdr.GetString(6);
+                        hhVAGYhhh = rdr.GetString(7);
                         try
                         {
-                            ervenyes = rdr.GetString(7);
+                            ervenyes = rdr.GetString(8);
                         }
                         catch
                         {
                             ervenyes = "nincs";
                         }
-                        csoport = rdr.GetString(8);
+                        csoport = rdr.GetString(9);
                     }
                 }
             }
@@ -224,6 +231,42 @@ namespace Szakdolgozat
         private void listView1_Leave(object sender, EventArgs e)
         {
             szerkesztButton.Enabled = false;
+        }
+
+        private void frissit_Button_Click(object sender, EventArgs e)
+        {
+            szerkesztButton.Enabled = false;
+            gyermekKereseseButton.Enabled = false;
+            groupBox1.Enabled = false;
+            listView1.Clear();
+            adatok.Clear();
+            csoportKivalaszCombo.Items.Clear();
+            csoportSelectCombo.Items.Clear();
+            //Csoportok feltöltése /////////////////////////////////////////////////////////////////////////////////////////////
+
+            string sql = "SELECT csoportNeve FROM csoportok";
+            using (var cmd = new MySqlCommand(sql, Program.conn))
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    string csoportNeve = rdr.GetString(0);
+                    csoportKivalaszCombo.Items.Add(csoportNeve);
+                    csoportSelectCombo.Items.Add(csoportNeve);
+                }
+            }
+
+            csoportSelectCombo.Text = "Válassz egy csoportot....";
+            sql = "SELECT nev,csoport FROM gyermekek";
+            using (var cmd = new MySqlCommand(sql, Program.conn))
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
+                    adatok.Add(uj);
+                }
+            }
         }
     }
 }

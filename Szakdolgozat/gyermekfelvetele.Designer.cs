@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.frissit_Button = new System.Windows.Forms.Button();
             this.ervenyesMask = new System.Windows.Forms.MaskedTextBox();
             this.gyVErvenyesMask = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -158,6 +159,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.frissit_Button);
             this.groupBox1.Controls.Add(this.ervenyesMask);
             this.groupBox1.Controls.Add(this.gyVErvenyesMask);
             this.groupBox1.Controls.Add(this.label8);
@@ -186,6 +188,18 @@
             this.groupBox1.Size = new System.Drawing.Size(755, 406);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            // 
+            // frissit_Button
+            // 
+            this.frissit_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("frissit_Button.BackgroundImage")));
+            this.frissit_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.frissit_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.frissit_Button.Location = new System.Drawing.Point(84, 301);
+            this.frissit_Button.Name = "frissit_Button";
+            this.frissit_Button.Size = new System.Drawing.Size(73, 33);
+            this.frissit_Button.TabIndex = 36;
+            this.frissit_Button.UseVisualStyleBackColor = true;
+            this.frissit_Button.Click += new System.EventHandler(this.frissit_Button_Click);
             // 
             // ervenyesMask
             // 
@@ -471,5 +485,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox gyVErvenyesMask;
         private System.Windows.Forms.MaskedTextBox ervenyesMask;
+        private System.Windows.Forms.Button frissit_Button;
     }
 }

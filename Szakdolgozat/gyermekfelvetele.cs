@@ -49,7 +49,15 @@ namespace Szakdolgozat
 
         private void mentesButton_Click(object sender, EventArgs e)
         {
-            bool vaneGyV = true;
+            bool vaneGyV;
+            if (gyVErvenyesMask.Text != "")
+            {
+                 vaneGyV = true;
+            }
+            else
+            {
+                vaneGyV = false;
+            }
             bool vaneHHvagyHHH = false;
             bool ellenoriz = true;
             label8.Visible = false;
@@ -143,23 +151,16 @@ namespace Szakdolgozat
                 gyV = "nincs";
             }
             //
-
-            //GyV Érvényes Menü Ellenőrzése
-            if (gyV.Length > 0)
-            {
-                for (int i = 0; i < gyVErvenyes.Length; i++)
-                {
-                    if (gyVErvenyes[i] == ' ')
-                    {
-                        ellenoriz = false;
-                        hibauzenet = "A pirossal jelölt mezők hibásak!";
-                        gyVErvenyesMask.BackColor = Color.Red;
-                    }
-                }
-            }
-            //
             
             //Van-e HH Vagy HHH Check Ellenőrzése
+            if (HHvagyHHHCheck.Checked == true)
+            {
+                if (ervenyesMask.Text == "2   -  -")
+                {
+                    hibauzenet = "A pirossal jelölt mezők hibásak!";
+                    ervenyesMask.BackColor = Color.Red;
+                }
+            }
             if (HHvagyHHHCombo.SelectedItem == null)
             {
                 hhVAGYhhh = "nincs";
@@ -174,6 +175,24 @@ namespace Szakdolgozat
 
             }
             //
+
+            //GYV érényes menü
+            //
+            if (gyVHatTextBox.Text != "")
+            {
+                for (int i = 0; i < gyVErvenyesMask.Text.Length; i++)
+                {
+                    if (gyVErvenyesMask.Text[i] == ' ')
+                    {
+                        ellenoriz = false;
+                        hibauzenet = "A pirossal jelölt mezők hibásak!";
+                        gyVErvenyesMask.BackColor = Color.Red;
+                    }
+                }
+            }
+
+            //
+
 
             //HH Vagy HHH Érvényes Mező Ellenőrzése
             if (HHvagyHHHCheck.Checked == true)
@@ -299,7 +318,24 @@ namespace Szakdolgozat
             }
             else
             {
-                Environment.Exit(1);
+                Application.ExitThread();
+            }
+        }
+
+        private void frissit_Button_Click(object sender, EventArgs e)
+        {
+            HHvagyHHHCombo.SelectedItem = "HH (Hátrányos helyzetű)";
+            gyermekFelveteleButton.Enabled = false;
+            csoportKivalaszCombo.Items.Clear();
+            string sql = "SELECT csoportNeve FROM csoportok";
+            using (var cmd = new MySqlCommand(sql, Program.conn))
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    csoportKivalaszCombo.Items.Add(rdr.GetString(0));
+                    csoportKivalaszCombo.SelectedItem = rdr.GetString(0);
+                }
             }
         }
     }

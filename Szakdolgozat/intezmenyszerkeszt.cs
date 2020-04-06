@@ -30,22 +30,17 @@ namespace Szakdolgozat
             }
             else
             {
-                Environment.Exit(0);
+                Application.ExitThread();
             }
         }
         string azon = "";
         private void intezmenyszerkeszt_Load(object sender, EventArgs e)
         {
-            //            intezmenyNeve intezmenyCime   csoportokSzama telephelyEk
-            //Magiszter Óvoda És Általános Iskola     4440 Tiszavasvári, Kossuth utca 76.     10  Petőfi 4.,Petőfi 24.,
-
             string intezmenyNeve = "";
             string intezmenyCime = "";
             string csoportokSzama = "";
             string tordeloTelepek = "";
             List<string> telephelyEk = new List<string>();
-
-
             string sql = "SELECT * FROM intezmeny";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
@@ -67,7 +62,6 @@ namespace Szakdolgozat
             intezmenyNeve_Text.Text = intezmenyNeve;
             intezmenyCime_Text.Text = intezmenyCime;
             csoportokSzáma_Text.Text = csoportokSzama;
-
             foreach (var item in telephelyEk)
             {
                 if (item.ToString().Length > 0)
@@ -75,7 +69,6 @@ namespace Szakdolgozat
                     comboBox1.Items.Add(item);
                 }
             }
-            comboBox1.SelectedIndex = 1;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -134,7 +127,7 @@ namespace Szakdolgozat
                 string telephelyEk = "";
                 foreach (var item in comboBox1.Items)
                 {
-                    telephelyEk += item + ".,";
+                    telephelyEk += item + ",";
                 }
                 Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
                 Program.sqlCommand.Connection = Program.conn;
@@ -146,12 +139,31 @@ namespace Szakdolgozat
                 Program.sqlCommand.Parameters.AddWithValue("@3", csoportokSzama);
                 Program.sqlCommand.Parameters.AddWithValue("@4", telephelyEk);
                 Program.sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Sikeres mentés!");
+                MessageBox.Show("Sikeres mentés!\nLépjen be újra....");
+                Application.Exit();
             }
             catch (Exception)
             {
                 MessageBox.Show("Hiba a mentés sopán!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void kezdőlapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.form_nyito.Show();
+        }
+
+        private void csoportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.csoport_szerkeszt.Show();
+        }
+
+        private void dolgozókToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Program.form_szerkeszt.Show();
         }
     }
 }
