@@ -28,6 +28,7 @@ namespace Szakdolgozat
             InitializeComponent();
         }
         static List<Gyermek> adatok = new List<Gyermek>();
+        int azon = 0;
         private void gyermekKeres_Load(object sender, EventArgs e)
         {
             szerkesztButton.Enabled = false;
@@ -49,14 +50,15 @@ namespace Szakdolgozat
             }
 
             csoportSelectCombo.Text = "Válassz egy csoportot....";
-            sql = "SELECT nev,csoport FROM gyermekek";
+            sql = "SELECT azon,nev,csoport FROM gyermekek";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
+                    Gyermek uj = new Gyermek(rdr.GetString(1), rdr.GetString(2));
                     adatok.Add(uj);
+                    MessageBox.Show(rdr.GetString(0));
                 }
             }
         }
@@ -86,7 +88,6 @@ namespace Szakdolgozat
             gyVervenyesText.Visible = false;
             HHHvagyHHErvenyesText.Visible = false;
             groupBox1.Enabled = false;
-            string azon = "";
             string gyermekNeve = "";
             string szulIdo = "";
             string omazon = "";
@@ -116,14 +117,14 @@ namespace Szakdolgozat
                     MySqlDataReader rdr = cmd.ExecuteReader();
                     while (rdr.Read())
                     {
-                        azon = rdr.GetString(0);
+                        azon = Convert.ToInt32(rdr.GetString(0));
                         gyermekNeve = rdr.GetString(1);
                         for (int i = 0; i < rdr.GetString(2).Length; i++)
                         {
                             if (i < 12)
-                            szulIdo += rdr.GetString(2)[i];
+                                szulIdo += rdr.GetString(2)[i];
                         }
-                        
+
                         omazon = rdr.GetString(3);
                         anyjaNeve = rdr.GetString(4);
                         gyV = rdr.GetString(5);
@@ -226,6 +227,7 @@ namespace Szakdolgozat
         {
             groupBox1.Enabled = true;
             mentesButton.Visible = true;
+            torles_Button.Visible = true;
         }
 
         private void listView1_Leave(object sender, EventArgs e)
@@ -266,6 +268,22 @@ namespace Szakdolgozat
                     Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
                     adatok.Add(uj);
                 }
+            }
+        }
+
+        private void torles_Button_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                Program.sqlCommand.Connection = Program.conn;
+                Program.sqlCommand.CommandText = "DELETE FROM `gyermekek` WHERE azon= '" + azon + "'";
+                Program.sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

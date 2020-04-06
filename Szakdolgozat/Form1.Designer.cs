@@ -56,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.kijelentkezes_Button = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -393,6 +394,19 @@
             this.textBox1.Text = "admin";
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
+            // kijelentkezes_Button
+            // 
+            this.kijelentkezes_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("kijelentkezes_Button.BackgroundImage")));
+            this.kijelentkezes_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.kijelentkezes_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.kijelentkezes_Button.Location = new System.Drawing.Point(733, 103);
+            this.kijelentkezes_Button.Name = "kijelentkezes_Button";
+            this.kijelentkezes_Button.Size = new System.Drawing.Size(29, 29);
+            this.kijelentkezes_Button.TabIndex = 24;
+            this.kijelentkezes_Button.UseVisualStyleBackColor = true;
+            this.kijelentkezes_Button.Visible = false;
+            this.kijelentkezes_Button.Click += new System.EventHandler(this.button6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,6 +415,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(774, 496);
+            this.Controls.Add(this.kijelentkezes_Button);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button4);
@@ -460,6 +475,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button kijelentkezes_Button;
     }
 }
 

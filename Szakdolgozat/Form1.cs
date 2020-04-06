@@ -162,6 +162,7 @@ namespace Szakdolgozat
                     label7.Visible = true;
                 }
             }
+            kijelentkezes_Button.Visible = true;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
@@ -196,6 +197,11 @@ namespace Szakdolgozat
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
