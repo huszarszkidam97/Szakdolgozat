@@ -225,6 +225,7 @@ namespace Szakdolgozat
                     listView1.Items.Add(item.nev);
                 }
             }
+            csoport_Letszam_Mutato_Label.Text = listView1.Items.Count.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -232,6 +233,7 @@ namespace Szakdolgozat
             groupBox1.Enabled = true;
             mentesButton.Visible = true;
             torles_Button.Visible = true;
+            torles_Button.Enabled = true;
         }
 
         private void listView1_Leave(object sender, EventArgs e)
@@ -293,7 +295,9 @@ namespace Szakdolgozat
                     Program.sqlCommand.Connection = Program.conn;
                     Program.sqlCommand.CommandText = "DELETE FROM `gyermekek` WHERE azon= '" + azon + "'";
                     Program.sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek ( " + selectedItem + " )");
+                    DialogResult dlgresult2 = MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek ( " + selectedItem + " )","",
+                              MessageBoxButtons.OK,
+                              MessageBoxIcon.Exclamation);
                     adatok.Clear();
                     string sql = "SELECT azon,nev,csoport FROM gyermekek";
                     using (var cmd = new MySqlCommand(sql, Program.conn))
@@ -306,6 +310,10 @@ namespace Szakdolgozat
                         }
                     }
                     csoportSelectCombo.SelectedItem = selectedItem2;
+                    int csoportLetszam = Convert.ToInt32(csoport_Letszam_Mutato_Label.Text);
+                    if (csoportLetszam >= 0)
+                    csoportLetszam -= 1;
+                    csoport_Letszam_Mutato_Label.Text = csoportLetszam.ToString();
                     listView1.Clear();
                     foreach (var item in adatok)
                     {
@@ -314,6 +322,24 @@ namespace Szakdolgozat
                             listView1.Items.Add(item.nev);
                         }
                     }
+                    torles_Button.Enabled = false;
+                    foreach (Control ctr in groupBox1.Controls)
+                    {
+                        if (ctr is TextBox)
+                        {
+                            ctr.Text = "";
+                        }
+                    }
+                    omAzonMask.Text = "";
+                    csoportKivalaszCombo.Text = "";
+                    gyVHatTextBox.Text = "";
+                    HHvagyHHHCheck.Checked = false;
+                    gyVErvenyesLabel.Visible = false;
+                    gyVervenyesText.Visible = false;
+                    groupBox1.Enabled = false;
+                    hhVAGYhhhText.Visible = false;
+                    HervenyesLabel.Visible = false;
+                    HHHvagyHHErvenyesText.Visible = false;
                 }
             }
             catch (Exception ex)

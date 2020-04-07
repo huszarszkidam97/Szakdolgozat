@@ -399,9 +399,9 @@
             this.kijelentkezes_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("kijelentkezes_Button.BackgroundImage")));
             this.kijelentkezes_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.kijelentkezes_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.kijelentkezes_Button.Location = new System.Drawing.Point(733, 103);
+            this.kijelentkezes_Button.Location = new System.Drawing.Point(669, 103);
             this.kijelentkezes_Button.Name = "kijelentkezes_Button";
-            this.kijelentkezes_Button.Size = new System.Drawing.Size(29, 29);
+            this.kijelentkezes_Button.Size = new System.Drawing.Size(93, 29);
             this.kijelentkezes_Button.TabIndex = 24;
             this.kijelentkezes_Button.UseVisualStyleBackColor = true;
             this.kijelentkezes_Button.Visible = false;

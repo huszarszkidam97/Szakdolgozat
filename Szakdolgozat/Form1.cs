@@ -201,7 +201,7 @@ namespace Szakdolgozat
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Application.Restart();
+            Application.Exit();
         }
     }
 }

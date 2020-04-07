@@ -24,7 +24,7 @@ namespace Szakdolgozat
 
         [STAThread]
         static void Main()
-        {
+       {
 
             MySqlConnectionStringBuilder sb = null;
             sb = new MySqlConnectionStringBuilder();

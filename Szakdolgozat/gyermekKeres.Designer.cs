@@ -39,6 +39,7 @@
             this.csoportHozzaadButton = new System.Windows.Forms.Button();
             this.intHozzaadButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.torles_Button = new System.Windows.Forms.Button();
             this.mentesButton = new System.Windows.Forms.Button();
             this.HHHvagyHHErvenyesText = new System.Windows.Forms.MaskedTextBox();
             this.hhVAGYhhhText = new System.Windows.Forms.MaskedTextBox();
@@ -62,7 +63,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.szerkesztButton = new System.Windows.Forms.Button();
             this.frissit_Button = new System.Windows.Forms.Button();
-            this.torles_Button = new System.Windows.Forms.Button();
+            this.csoport_Letszam_Label = new System.Windows.Forms.Label();
+            this.csoport_Letszam_Mutato_Label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -90,9 +92,9 @@
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(12, 137);
+            this.listView1.Location = new System.Drawing.Point(12, 168);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(196, 317);
+            this.listView1.Size = new System.Drawing.Size(196, 286);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
@@ -216,6 +218,19 @@
             this.groupBox1.Size = new System.Drawing.Size(709, 401);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
+            // 
+            // torles_Button
+            // 
+            this.torles_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("torles_Button.BackgroundImage")));
+            this.torles_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.torles_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.torles_Button.Location = new System.Drawing.Point(61, 295);
+            this.torles_Button.Name = "torles_Button";
+            this.torles_Button.Size = new System.Drawing.Size(101, 49);
+            this.torles_Button.TabIndex = 37;
+            this.torles_Button.UseVisualStyleBackColor = true;
+            this.torles_Button.Visible = false;
+            this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
             // 
             // mentesButton
             // 
@@ -461,18 +476,28 @@
             this.frissit_Button.UseVisualStyleBackColor = false;
             this.frissit_Button.Click += new System.EventHandler(this.frissit_Button_Click);
             // 
-            // torles_Button
+            // csoport_Letszam_Label
             // 
-            this.torles_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("torles_Button.BackgroundImage")));
-            this.torles_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.torles_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.torles_Button.Location = new System.Drawing.Point(61, 295);
-            this.torles_Button.Name = "torles_Button";
-            this.torles_Button.Size = new System.Drawing.Size(101, 49);
-            this.torles_Button.TabIndex = 37;
-            this.torles_Button.UseVisualStyleBackColor = true;
-            this.torles_Button.Visible = false;
-            this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
+            this.csoport_Letszam_Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.csoport_Letszam_Label.AutoSize = true;
+            this.csoport_Letszam_Label.BackColor = System.Drawing.Color.Transparent;
+            this.csoport_Letszam_Label.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.csoport_Letszam_Label.Location = new System.Drawing.Point(12, 134);
+            this.csoport_Letszam_Label.Name = "csoport_Letszam_Label";
+            this.csoport_Letszam_Label.Size = new System.Drawing.Size(139, 24);
+            this.csoport_Letszam_Label.TabIndex = 38;
+            this.csoport_Letszam_Label.Text = "CSOPORT LÉTSZÁM: ";
+            // 
+            // csoport_Letszam_Mutato_Label
+            // 
+            this.csoport_Letszam_Mutato_Label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.csoport_Letszam_Mutato_Label.AutoSize = true;
+            this.csoport_Letszam_Mutato_Label.BackColor = System.Drawing.Color.Transparent;
+            this.csoport_Letszam_Mutato_Label.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.csoport_Letszam_Mutato_Label.Location = new System.Drawing.Point(157, 134);
+            this.csoport_Letszam_Mutato_Label.Name = "csoport_Letszam_Mutato_Label";
+            this.csoport_Letszam_Mutato_Label.Size = new System.Drawing.Size(0, 24);
+            this.csoport_Letszam_Mutato_Label.TabIndex = 39;
             // 
             // gyermekKeres
             // 
@@ -482,6 +507,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(974, 516);
+            this.Controls.Add(this.csoport_Letszam_Mutato_Label);
+            this.Controls.Add(this.csoport_Letszam_Label);
             this.Controls.Add(this.frissit_Button);
             this.Controls.Add(this.szerkesztButton);
             this.Controls.Add(this.csoportSelectCombo);
@@ -545,5 +572,7 @@
         private System.Windows.Forms.Button mentesButton;
         private System.Windows.Forms.Button frissit_Button;
         private System.Windows.Forms.Button torles_Button;
+        private System.Windows.Forms.Label csoport_Letszam_Label;
+        private System.Windows.Forms.Label csoport_Letszam_Mutato_Label;
     }
 }

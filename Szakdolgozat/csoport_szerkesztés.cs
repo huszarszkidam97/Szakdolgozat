@@ -98,7 +98,6 @@ namespace Szakdolgozat
                         csoportLetszam_Text.Text = rdr.GetString(3);
                         azon = Convert.ToInt32(rdr.GetString(0));
                         telephely_Box.SelectedItem = rdr.GetString(2);
-                        MessageBox.Show(rdr.GetString(2));
                     }
                 }
             }
