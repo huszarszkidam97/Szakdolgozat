@@ -155,6 +155,7 @@ namespace Szakdolgozat
                         telephelyekTextBox.Text = rdr2.GetString(3);
                         csoportokSzamaTextBox.Text = rdr2.GetInt32(2).ToString();
                         intCimTextBox.Text = rdr2.GetString(1);
+                        kijelentkezes_Button.Visible = true;
                     }
                 }
                 if (intNevTextBox.Text == "" || telephelyekTextBox.Text == "" || csoportokSzamaTextBox.Text == "" || intCimTextBox.Text == "")
@@ -162,7 +163,6 @@ namespace Szakdolgozat
                     label7.Visible = true;
                 }
             }
-            kijelentkezes_Button.Visible = true;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)

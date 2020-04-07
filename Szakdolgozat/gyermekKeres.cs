@@ -29,6 +29,8 @@ namespace Szakdolgozat
         }
         static List<Gyermek> adatok = new List<Gyermek>();
         int azon = 0;
+        string selectedItem = "";
+        string selectedItem2 = "";
         private void gyermekKeres_Load(object sender, EventArgs e)
         {
             szerkesztButton.Enabled = false;
@@ -111,6 +113,7 @@ namespace Szakdolgozat
                     if (mehet == true && gyermekNeveVizsgalat[i] != '{')
                         gyermek += gyermekNeveVizsgalat[i];
                 }
+                selectedItem = gyermek;
                 string sql = "SELECT * FROM gyermekek WHERE nev = '" + gyermek + "'";
                 using (var cmd = new MySqlCommand(sql, Program.conn))
                 {
@@ -213,7 +216,9 @@ namespace Szakdolgozat
 
         private void csoportSelectCombo_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             listView1.Items.Clear();
+            selectedItem2 = csoportSelectCombo.SelectedItem.ToString();
             foreach (var item in adatok)
             {
                 if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
@@ -280,6 +285,28 @@ namespace Szakdolgozat
                 Program.sqlCommand.CommandText = "DELETE FROM `gyermekek` WHERE azon= '" + azon + "'";
                 Program.sqlCommand.ExecuteNonQuery();
                 MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek");
+                MessageBox.Show(selectedItem);
+                adatok.Clear();
+                string sql = "SELECT azon,nev,csoport FROM gyermekek";
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Gyermek uj = new Gyermek(rdr.GetString(1), rdr.GetString(2));
+                        adatok.Add(uj);
+                    }
+                }
+                csoportSelectCombo.SelectedItem = selectedItem2;
+                listView1.Clear();
+                foreach (var item in adatok)
+                {
+                    if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
+                    {
+                        listView1.Items.Add(item.nev);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
