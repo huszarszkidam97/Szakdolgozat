@@ -79,19 +79,26 @@ namespace Szakdolgozat
 
         private void telephelyTorlese_button_Click(object sender, EventArgs e)
         {
-            comboBox1.Items[comboBox1.SelectedIndex] = string.Empty;
-            List<string> Lista = new List<string>();
-            foreach (var item in comboBox1.Items)
+            try
             {
-                if (item.ToString().Length > 0)
+                comboBox1.Items[comboBox1.SelectedIndex] = string.Empty;
+                List<string> Lista = new List<string>();
+                foreach (var item in comboBox1.Items)
                 {
-                    Lista.Add(item.ToString());
+                    if (item.ToString().Length > 0)
+                    {
+                        Lista.Add(item.ToString());
+                    }
+                }
+                comboBox1.Items.Clear();
+                foreach (var item in Lista)
+                {
+                    comboBox1.Items.Add(item);
                 }
             }
-            comboBox1.Items.Clear();
-            foreach (var item in Lista)
+            catch
             {
-                comboBox1.Items.Add(item);
+                MessageBox.Show("Hiba!\nNem választotta ki a telephelyet!\nVagy\nNincs mit törölni!");
             }
         }
 

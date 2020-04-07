@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(gyermekKeres));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +65,8 @@
             this.frissit_Button = new System.Windows.Forms.Button();
             this.csoport_Letszam_Label = new System.Windows.Forms.Label();
             this.csoport_Letszam_Mutato_Label = new System.Windows.Forms.Label();
+            this.neme_comboBox = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +93,7 @@
             this.listView1.BackColor = System.Drawing.SystemColors.HotTrack;
             this.listView1.HideSelection = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem6});
             this.listView1.Location = new System.Drawing.Point(12, 168);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(196, 286);
@@ -189,6 +191,8 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.neme_comboBox);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.torles_Button);
             this.groupBox1.Controls.Add(this.mentesButton);
             this.groupBox1.Controls.Add(this.HHHvagyHHErvenyesText);
@@ -243,6 +247,7 @@
             this.mentesButton.TabIndex = 36;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Visible = false;
+            this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
             // HHHvagyHHErvenyesText
             // 
@@ -328,6 +333,7 @@
             this.HHvagyHHHCheck.Size = new System.Drawing.Size(15, 14);
             this.HHvagyHHHCheck.TabIndex = 8;
             this.HHvagyHHHCheck.UseVisualStyleBackColor = true;
+            this.HHvagyHHHCheck.CheckedChanged += new System.EventHandler(this.HHvagyHHHCheck_CheckedChanged);
             // 
             // gyVHatTextBox
             // 
@@ -335,6 +341,7 @@
             this.gyVHatTextBox.Name = "gyVHatTextBox";
             this.gyVHatTextBox.Size = new System.Drawing.Size(161, 20);
             this.gyVHatTextBox.TabIndex = 6;
+            this.gyVHatTextBox.TextChanged += new System.EventHandler(this.gyVHatTextBox_TextChanged);
             // 
             // anyjaNeveTextBox
             // 
@@ -499,6 +506,29 @@
             this.csoport_Letszam_Mutato_Label.Size = new System.Drawing.Size(0, 24);
             this.csoport_Letszam_Mutato_Label.TabIndex = 39;
             // 
+            // neme_comboBox
+            // 
+            this.neme_comboBox.FormattingEnabled = true;
+            this.neme_comboBox.Items.AddRange(new object[] {
+            "lány",
+            "fiú"});
+            this.neme_comboBox.Location = new System.Drawing.Point(471, 114);
+            this.neme_comboBox.Name = "neme_comboBox";
+            this.neme_comboBox.Size = new System.Drawing.Size(94, 21);
+            this.neme_comboBox.TabIndex = 40;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(400, 115);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 24);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "NEME: ";
+            // 
             // gyermekKeres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,5 +604,7 @@
         private System.Windows.Forms.Button torles_Button;
         private System.Windows.Forms.Label csoport_Letszam_Label;
         private System.Windows.Forms.Label csoport_Letszam_Mutato_Label;
+        private System.Windows.Forms.ComboBox neme_comboBox;
+        private System.Windows.Forms.Label label9;
     }
 }

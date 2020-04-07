@@ -58,6 +58,8 @@
             this.intHozzaadButton = new System.Windows.Forms.Button();
             this.gyermekKereseseButton = new System.Windows.Forms.Button();
             this.gyermekFelveteleButton = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.neme_comboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -159,6 +161,8 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.neme_comboBox);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.frissit_Button);
             this.groupBox1.Controls.Add(this.ervenyesMask);
             this.groupBox1.Controls.Add(this.gyVErvenyesMask);
@@ -424,6 +428,29 @@
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
             // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(423, 114);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 24);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "NEME: ";
+            // 
+            // neme_comboBox
+            // 
+            this.neme_comboBox.FormattingEnabled = true;
+            this.neme_comboBox.Items.AddRange(new object[] {
+            "lány",
+            "fiú"});
+            this.neme_comboBox.Location = new System.Drawing.Point(483, 112);
+            this.neme_comboBox.Name = "neme_comboBox";
+            this.neme_comboBox.Size = new System.Drawing.Size(94, 21);
+            this.neme_comboBox.TabIndex = 38;
+            // 
             // gyermekfelvetele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,5 +513,7 @@
         private System.Windows.Forms.MaskedTextBox gyVErvenyesMask;
         private System.Windows.Forms.MaskedTextBox ervenyesMask;
         private System.Windows.Forms.Button frissit_Button;
+        private System.Windows.Forms.ComboBox neme_comboBox;
+        private System.Windows.Forms.Label label9;
     }
 }

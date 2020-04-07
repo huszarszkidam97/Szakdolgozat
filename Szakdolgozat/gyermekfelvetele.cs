@@ -78,7 +78,7 @@ namespace Szakdolgozat
             string hhVAGYhhh = "";
             string Hervenyes = "";
             string csoport = "";
-            
+            string neme = neme_comboBox.SelectedItem.ToString();
             gyermekNeve = gyermekNeveTextBox.Text;
             szuletesiIdo = Convert.ToDateTime(szulIdoPicker.Value.ToShortDateString());
             omazon = Convert.ToString(omAzonMask.Text);
@@ -230,13 +230,14 @@ namespace Szakdolgozat
                 MessageBox.Show(ex.Message);
             }
             //
+            
             if (ellenoriz)
             {
                 try
                 {
                     Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
                     Program.sqlCommand.Connection = Program.conn;
-                    Program.sqlCommand.CommandText = "INSERT INTO gyermekek(nev,szuletesiIdo,omazon,anyjaNeve,gyV,gyVervenyes,hhvagyhhh,ervenyes,csoport) VALUES(?,?,?,?,?,?,?,?,?)";
+                    Program.sqlCommand.CommandText = "INSERT INTO gyermekek(nev,szuletesiIdo,omazon,anyjaNeve,gyV,gyVervenyes,hhvagyhhh,ervenyes,csoport,neme) VALUES(?,?,?,?,?,?,?,?,?,?)";
                     Program.sqlCommand.Parameters.Add("nev", MySqlDbType.VarChar).Value = gyermekNeve;
                     Program.sqlCommand.Parameters.Add("szuletesiIdo", MySqlDbType.Date).Value = szuletesiIdo;
                     Program.sqlCommand.Parameters.Add("omazon", MySqlDbType.VarChar).Value = omazon;
@@ -252,6 +253,7 @@ namespace Szakdolgozat
                     else
                         Program.sqlCommand.Parameters.Add("ervenyes", MySqlDbType.VarChar).Value = "-";
                     Program.sqlCommand.Parameters.Add("csoport", MySqlDbType.VarChar).Value = csoport;
+                    Program.sqlCommand.Parameters.Add("neme", MySqlDbType.VarChar).Value = neme;
                     Program.sqlCommand.ExecuteNonQuery();
                     MessageBox.Show("Sikeres mentés!");
                 }
@@ -268,6 +270,7 @@ namespace Szakdolgozat
 
         private void gyermekfelvetele_Load(object sender, EventArgs e)
         {
+            neme_comboBox.SelectedIndex = 0;
             HHvagyHHHCombo.SelectedItem = "HH (Hátrányos helyzetű)";
             gyermekFelveteleButton.Enabled = false;
             string sql = "SELECT csoportNeve FROM csoportok";

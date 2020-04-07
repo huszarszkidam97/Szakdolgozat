@@ -33,6 +33,7 @@ namespace Szakdolgozat
         string selectedItem2 = "";
         private void gyermekKeres_Load(object sender, EventArgs e)
         {
+            neme_comboBox.SelectedIndex = 0;
             szerkesztButton.Enabled = false;
             gyermekKereseseButton.Enabled = false;
             groupBox1.Enabled = false;
@@ -99,6 +100,7 @@ namespace Szakdolgozat
             string ervenyes = "";
             string csoport = "";
             string gyermek = "";
+            string neme = "";
             foreach (var item in listView1.SelectedItems)
             {
                 string gyermekNeveVizsgalat = item.ToString();
@@ -121,11 +123,17 @@ namespace Szakdolgozat
                     {
                         azon = Convert.ToInt32(rdr.GetString(0));
                         gyermekNeve = rdr.GetString(1);
-                        for (int i = 0; i < rdr.GetString(2).Length; i++)
+                        try
                         {
-                            if (i < 12)
-                                szulIdo += rdr.GetString(2)[i];
+                            szulIdo = rdr.GetString(2);
                         }
+                        catch (Exception m)
+                        {
+                            szulIdo = "hiba";
+                            MessageBox.Show(m.Message + rdr.GetString(2).ToString());
+                        }
+
+
 
                         omazon = rdr.GetString(3);
                         anyjaNeve = rdr.GetString(4);
@@ -150,6 +158,7 @@ namespace Szakdolgozat
                             ervenyes = "nincs";
                         }
                         csoport = rdr.GetString(9);
+                        neme = rdr.GetString(10);
                     }
                 }
             }
@@ -159,6 +168,7 @@ namespace Szakdolgozat
             anyjaNeveTextBox.Text = anyjaNeve;
             gyVHatTextBox.Text = gyV;
             szulIdoText.Text = szulIdo;
+            neme_comboBox.SelectedItem = neme;
             if (gyV != "nincs")
             {
                 gyVErvenyesLabel.Visible = true;
@@ -345,6 +355,119 @@ namespace Szakdolgozat
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
+            }
+        }
+
+        string ervenyes = "";
+        string hervenyes = "";
+        private void mentesButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nev = gyermekNeveTextBox.Text;
+                string szulido = szulIdoText.Text;
+                string omAzon = omAzonMask.Text;
+                string anyjaneve = anyjaNeveTextBox.Text;
+
+                string gyV = gyVHatTextBox.Text;
+                ervenyes = gyVervenyesText.Text;
+                string hhvagyhhh = hhVAGYhhhText.Text;
+                hervenyes = HHHvagyHHErvenyesText.Text;
+
+                string csoport = csoportKivalaszCombo.SelectedItem.ToString();
+                string neme = neme_comboBox.SelectedItem.ToString();
+
+                if (gyV.Length == 0 || gyV == "nincs")
+                {
+                    gyV = "nincs";
+                    ervenyes = "-";
+                }
+                if (HHvagyHHHCheck.Checked == false)
+                {
+                    hhvagyhhh = "nincs";
+                    hervenyes = "-";
+                }
+                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                Program.sqlCommand.Connection = Program.conn;
+                Program.sqlCommand.CommandText = "UPDATE `gyermekek` SET nev = @1, " +
+                                                 "szuletesiIdo = @2, " +
+                                                 "omazon = @3, " +
+                                                 "anyjaNeve = @4, " +
+                                                 "gyV = @5, " +
+                                                 "gyVervenyes = @6, " +
+                                                 "hhvagyhhh = @7, " +
+                                                 "ervenyes = @8, " +
+                                                 "csoport = @9, " +
+                                                 "neme = @10 " +
+                                                 "WHERE (azon = '" + azon + "')";
+
+
+                Program.sqlCommand.Parameters.AddWithValue("@1", nev);
+                Program.sqlCommand.Parameters.AddWithValue("@2", szulido);
+                Program.sqlCommand.Parameters.AddWithValue("@3", omAzon);
+                Program.sqlCommand.Parameters.AddWithValue("@4", anyjaneve);
+                Program.sqlCommand.Parameters.AddWithValue("@5", gyV);
+                Program.sqlCommand.Parameters.AddWithValue("@6", ervenyes);
+                Program.sqlCommand.Parameters.AddWithValue("@7", hhvagyhhh);
+                Program.sqlCommand.Parameters.AddWithValue("@8", hervenyes);
+                Program.sqlCommand.Parameters.AddWithValue("@9", csoport);
+                Program.sqlCommand.Parameters.AddWithValue("@10", neme);
+                Program.sqlCommand.ExecuteNonQuery();
+                MessageBox.Show("Sikeres mentés!");
+
+                string sql = "SELECT nev,csoport FROM gyermekek";
+                adatok.Clear();
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
+                        adatok.Add(uj);
+                    }
+                }
+                listView1.Clear();
+                foreach (var item in adatok)
+                {
+                    if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
+                    listView1.Items.Add(item.nev);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void HHvagyHHHCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (HHvagyHHHCheck.Checked == true)
+            {
+                hhVAGYhhhText.Visible = true;
+                HervenyesLabel.Visible = true;
+                HHHvagyHHErvenyesText.Visible = true;
+            }
+            else
+            {
+                hhVAGYhhhText.Visible = false;
+                HervenyesLabel.Visible = false;
+                HHHvagyHHErvenyesText.Visible = false;
+                ervenyes = "-";
+                hervenyes = "-";
+            }
+        }
+
+        private void gyVHatTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (gyVHatTextBox.Text == "" || gyVHatTextBox.Text == "nincs")
+            {
+                gyVErvenyesLabel.Visible = false;
+                gyVervenyesText.Visible = false;
+            }
+            else
+            {
+                gyVErvenyesLabel.Visible = true;
+                gyVervenyesText.Visible = true;
             }
         }
     }
