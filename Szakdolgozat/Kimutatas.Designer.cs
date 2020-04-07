@@ -80,9 +80,9 @@
             this.Bezaras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Bezaras.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.Bezaras.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Bezaras.Location = new System.Drawing.Point(12, 350);
+            this.Bezaras.Location = new System.Drawing.Point(12, 363);
             this.Bezaras.Name = "Bezaras";
-            this.Bezaras.Size = new System.Drawing.Size(121, 45);
+            this.Bezaras.Size = new System.Drawing.Size(77, 32);
             this.Bezaras.TabIndex = 4;
             this.Bezaras.UseVisualStyleBackColor = true;
             this.Bezaras.Click += new System.EventHandler(this.Bezaras_Click);
@@ -95,7 +95,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(12, 92);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(173, 53);
+            this.button1.Size = new System.Drawing.Size(160, 30);
             this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -128,9 +128,9 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(12, 151);
+            this.button2.Location = new System.Drawing.Point(12, 134);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(121, 50);
+            this.button2.Size = new System.Drawing.Size(77, 32);
             this.button2.TabIndex = 7;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -156,7 +156,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(492, 51);
+            this.button3.Location = new System.Drawing.Point(492, 74);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(187, 23);
             this.button3.TabIndex = 0;
@@ -181,7 +181,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(78, 56);
+            this.label1.Location = new System.Drawing.Point(78, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 20);
             this.label1.TabIndex = 2;
@@ -209,9 +209,9 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(12, 207);
+            this.button4.Location = new System.Drawing.Point(12, 174);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(121, 43);
+            this.button4.Size = new System.Drawing.Size(100, 41);
             this.button4.TabIndex = 5;
             this.button4.Text = "STATISZTIKA";
             this.button4.UseVisualStyleBackColor = true;
@@ -223,9 +223,9 @@
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button5.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button5.Location = new System.Drawing.Point(57, 263);
+            this.button5.Location = new System.Drawing.Point(56, 286);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(173, 53);
+            this.button5.Size = new System.Drawing.Size(160, 30);
             this.button5.TabIndex = 5;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);

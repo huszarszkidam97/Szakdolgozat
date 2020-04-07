@@ -119,6 +119,7 @@
             this.intHozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("intHozzaadButton.BackgroundImage")));
             this.intHozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.intHozzaadButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.intHozzaadButton.Enabled = false;
             this.intHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.intHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.intHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;

@@ -48,6 +48,19 @@ namespace Szakdolgozat
             if (intNevTextBox.Text == "" || telephelyekTextBox.Text == "" || csoportokSzamaTextBox.Text == "" || intCimTextBox.Text == "")
             {
                 label7.Visible = true;
+                button1.Enabled = true;
+                menuStrip1.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+            }
+            else
+            {
+                button1.Enabled = true;
+                menuStrip1.Enabled = true;
+                button2.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
             }
         }
 
@@ -202,6 +215,11 @@ namespace Szakdolgozat
         private void button6_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void menüToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.form_kimutatas.Show();
         }
     }
 }

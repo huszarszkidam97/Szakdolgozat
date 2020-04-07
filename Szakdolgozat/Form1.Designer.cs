@@ -35,7 +35,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menüToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kimutatasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.szerkesztésToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.intézményToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.csoportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,18 +151,10 @@
             // 
             // menüToolStripMenuItem
             // 
-            this.menüToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.kimutatasToolStripMenuItem});
             this.menüToolStripMenuItem.Name = "menüToolStripMenuItem";
-            this.menüToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
-            this.menüToolStripMenuItem.Text = "Menü";
-            // 
-            // kimutatasToolStripMenuItem
-            // 
-            this.kimutatasToolStripMenuItem.Name = "kimutatasToolStripMenuItem";
-            this.kimutatasToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.kimutatasToolStripMenuItem.Text = "Kimutatás";
-            this.kimutatasToolStripMenuItem.Click += new System.EventHandler(this.kimutatasToolStripMenuItem_Click);
+            this.menüToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.menüToolStripMenuItem.Text = "Kimutatás";
+            this.menüToolStripMenuItem.Click += new System.EventHandler(this.menüToolStripMenuItem_Click);
             // 
             // szerkesztésToolStripMenuItem
             // 
@@ -201,9 +192,9 @@
             this.telephelyekTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.telephelyekTextBox.Enabled = false;
             this.telephelyekTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telephelyekTextBox.Location = new System.Drawing.Point(286, 110);
+            this.telephelyekTextBox.Location = new System.Drawing.Point(192, 110);
             this.telephelyekTextBox.Name = "telephelyekTextBox";
-            this.telephelyekTextBox.Size = new System.Drawing.Size(290, 32);
+            this.telephelyekTextBox.Size = new System.Drawing.Size(433, 32);
             this.telephelyekTextBox.TabIndex = 24;
             // 
             // intCimTextBox
@@ -211,9 +202,9 @@
             this.intCimTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.intCimTextBox.Enabled = false;
             this.intCimTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intCimTextBox.Location = new System.Drawing.Point(286, 188);
+            this.intCimTextBox.Location = new System.Drawing.Point(192, 188);
             this.intCimTextBox.Name = "intCimTextBox";
-            this.intCimTextBox.Size = new System.Drawing.Size(290, 32);
+            this.intCimTextBox.Size = new System.Drawing.Size(433, 32);
             this.intCimTextBox.TabIndex = 23;
             // 
             // label4
@@ -223,7 +214,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(76, 190);
+            this.label4.Location = new System.Drawing.Point(44, 188);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(123, 24);
             this.label4.TabIndex = 22;
@@ -234,9 +225,9 @@
             this.csoportokSzamaTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.csoportokSzamaTextBox.Enabled = false;
             this.csoportokSzamaTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.csoportokSzamaTextBox.Location = new System.Drawing.Point(286, 147);
+            this.csoportokSzamaTextBox.Location = new System.Drawing.Point(192, 147);
             this.csoportokSzamaTextBox.Name = "csoportokSzamaTextBox";
-            this.csoportokSzamaTextBox.Size = new System.Drawing.Size(98, 32);
+            this.csoportokSzamaTextBox.Size = new System.Drawing.Size(74, 32);
             this.csoportokSzamaTextBox.TabIndex = 21;
             // 
             // label1
@@ -246,7 +237,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(76, 76);
+            this.label1.Location = new System.Drawing.Point(44, 74);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 24);
             this.label1.TabIndex = 0;
@@ -259,7 +250,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label2.Location = new System.Drawing.Point(76, 112);
+            this.label2.Location = new System.Drawing.Point(44, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 24);
             this.label2.TabIndex = 1;
@@ -272,7 +263,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(76, 149);
+            this.label3.Location = new System.Drawing.Point(44, 147);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(140, 24);
             this.label3.TabIndex = 2;
@@ -282,10 +273,10 @@
             // 
             this.intNevTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.intNevTextBox.Enabled = false;
-            this.intNevTextBox.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.intNevTextBox.Location = new System.Drawing.Point(286, 68);
+            this.intNevTextBox.Font = new System.Drawing.Font("Myanmar Text", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.intNevTextBox.Location = new System.Drawing.Point(192, 68);
             this.intNevTextBox.Name = "intNevTextBox";
-            this.intNevTextBox.Size = new System.Drawing.Size(290, 32);
+            this.intNevTextBox.Size = new System.Drawing.Size(433, 28);
             this.intNevTextBox.TabIndex = 8;
             // 
             // groupBox1
@@ -462,7 +453,6 @@
         private System.Windows.Forms.TextBox intCimTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox telephelyekTextBox;
-        private System.Windows.Forms.ToolStripMenuItem kimutatasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem szerkesztésToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem intézményToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem csoportToolStripMenuItem;

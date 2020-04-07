@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.neme_comboBox = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.frissit_Button = new System.Windows.Forms.Button();
             this.ervenyesMask = new System.Windows.Forms.MaskedTextBox();
             this.gyVErvenyesMask = new System.Windows.Forms.MaskedTextBox();
@@ -58,8 +60,6 @@
             this.intHozzaadButton = new System.Windows.Forms.Button();
             this.gyermekKereseseButton = new System.Windows.Forms.Button();
             this.gyermekFelveteleButton = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.neme_comboBox = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -192,6 +192,29 @@
             this.groupBox1.Size = new System.Drawing.Size(755, 406);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
+            // 
+            // neme_comboBox
+            // 
+            this.neme_comboBox.FormattingEnabled = true;
+            this.neme_comboBox.Items.AddRange(new object[] {
+            "lány",
+            "fiú"});
+            this.neme_comboBox.Location = new System.Drawing.Point(483, 112);
+            this.neme_comboBox.Name = "neme_comboBox";
+            this.neme_comboBox.Size = new System.Drawing.Size(94, 21);
+            this.neme_comboBox.TabIndex = 38;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(423, 114);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(54, 24);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "NEME: ";
             // 
             // frissit_Button
             // 
@@ -382,6 +405,7 @@
             this.intHozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("intHozzaadButton.BackgroundImage")));
             this.intHozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.intHozzaadButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.intHozzaadButton.Enabled = false;
             this.intHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.intHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.intHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;
@@ -427,29 +451,6 @@
             this.gyermekFelveteleButton.TabIndex = 14;
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(423, 114);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 24);
-            this.label9.TabIndex = 37;
-            this.label9.Text = "NEME: ";
-            // 
-            // neme_comboBox
-            // 
-            this.neme_comboBox.FormattingEnabled = true;
-            this.neme_comboBox.Items.AddRange(new object[] {
-            "lány",
-            "fiú"});
-            this.neme_comboBox.Location = new System.Drawing.Point(483, 112);
-            this.neme_comboBox.Name = "neme_comboBox";
-            this.neme_comboBox.Size = new System.Drawing.Size(94, 21);
-            this.neme_comboBox.TabIndex = 38;
             // 
             // gyermekfelvetele
             // 
