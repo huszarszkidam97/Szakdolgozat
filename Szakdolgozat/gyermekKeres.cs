@@ -60,7 +60,6 @@ namespace Szakdolgozat
                 {
                     Gyermek uj = new Gyermek(rdr.GetString(1), rdr.GetString(2));
                     adatok.Add(uj);
-                    MessageBox.Show(rdr.GetString(0));
                 }
             }
         }
@@ -280,33 +279,42 @@ namespace Szakdolgozat
         {
             try
             {
-                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
-                Program.sqlCommand.Connection = Program.conn;
-                Program.sqlCommand.CommandText = "DELETE FROM `gyermekek` WHERE azon= '" + azon + "'";
-                Program.sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek");
-                MessageBox.Show(selectedItem);
-                adatok.Clear();
-                string sql = "SELECT azon,nev,csoport FROM gyermekek";
-                using (var cmd = new MySqlCommand(sql, Program.conn))
+                DialogResult dlgresult = MessageBox.Show("Biztosan törli?",
+                              "Gyermek törlése az adatbázisból",
+                              MessageBoxButtons.YesNo,
+                              MessageBoxIcon.Question);
+                if (dlgresult == DialogResult.No)
                 {
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
+                    return;
+                }
+                else
+                {
+                    Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                    Program.sqlCommand.Connection = Program.conn;
+                    Program.sqlCommand.CommandText = "DELETE FROM `gyermekek` WHERE azon= '" + azon + "'";
+                    Program.sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sikeresen törölve lett a " + azon + " azonosítójú gyermek ( " + selectedItem + " )");
+                    adatok.Clear();
+                    string sql = "SELECT azon,nev,csoport FROM gyermekek";
+                    using (var cmd = new MySqlCommand(sql, Program.conn))
                     {
-                        Gyermek uj = new Gyermek(rdr.GetString(1), rdr.GetString(2));
-                        adatok.Add(uj);
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            Gyermek uj = new Gyermek(rdr.GetString(1), rdr.GetString(2));
+                            adatok.Add(uj);
+                        }
+                    }
+                    csoportSelectCombo.SelectedItem = selectedItem2;
+                    listView1.Clear();
+                    foreach (var item in adatok)
+                    {
+                        if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
+                        {
+                            listView1.Items.Add(item.nev);
+                        }
                     }
                 }
-                csoportSelectCombo.SelectedItem = selectedItem2;
-                listView1.Clear();
-                foreach (var item in adatok)
-                {
-                    if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
-                    {
-                        listView1.Items.Add(item.nev);
-                    }
-                }
-
             }
             catch (Exception ex)
             {
