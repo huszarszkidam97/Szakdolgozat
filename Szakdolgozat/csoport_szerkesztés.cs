@@ -65,6 +65,7 @@ namespace Szakdolgozat
         {
             box_szerkesztes.Enabled = false;
             mentesButton.Enabled = false;
+            button2.Enabled = false;
             if (csoportok_View.SelectedItems.Count > 0)
             {
                 button1.Enabled = true;
@@ -107,14 +108,15 @@ namespace Szakdolgozat
         {
             box_szerkesztes.Enabled = true;
             mentesButton.Enabled = true;
+            button2.Enabled = true;
         }
 
         private void csoport_szerkesztés_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult dlgresult = MessageBox.Show("Biztosan kilép a programból?",
-       "Program bezárása",
-       MessageBoxButtons.YesNo,
-       MessageBoxIcon.Information);
+            "Program bezárása",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information);
             if (dlgresult == DialogResult.No)
             {
                 e.Cancel = true;
@@ -163,6 +165,35 @@ namespace Szakdolgozat
             catch (Exception)
             {
                 MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgresult = MessageBox.Show("Biztosan törli a programból?",
+            "Törlés",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information);
+            if (dlgresult == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                Program.sqlCommand.Connection = Program.conn;
+                Program.sqlCommand.CommandText = "DELETE FROM `csoportok` WHERE azon= '" + azon + "'";
+                Program.sqlCommand.ExecuteNonQuery();
+                csoportok_View.Clear();
+                string sql = "SELECT csoportNeve FROM csoportok";
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        csoportok_View.Items.Add(rdr.GetString(0));
+                    }
+                }
             }
         }
     }

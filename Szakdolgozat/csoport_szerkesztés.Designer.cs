@@ -45,6 +45,7 @@
             this.mentesButton = new System.Windows.Forms.Button();
             this.csoportok_View = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.button2 = new System.Windows.Forms.Button();
             this.box_szerkesztes.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -207,6 +208,18 @@
             this.menuStrip1.TabIndex = 14;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // button2
+            // 
+            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(455, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(72, 41);
+            this.button2.TabIndex = 18;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // csoport_szerkesztés
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,6 +227,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(632, 360);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.box_szerkesztes);
             this.Controls.Add(this.mentesButton);
@@ -256,5 +270,6 @@
         private System.Windows.Forms.Button mentesButton;
         private System.Windows.Forms.ListView csoportok_View;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Button button2;
     }
 }

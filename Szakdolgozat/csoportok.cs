@@ -311,5 +311,22 @@ namespace Szakdolgozat
                 Application.ExitThread();
             }
         }
+
+        private void torles_Button_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgresult = MessageBox.Show("Biztosan törli a listát?",
+                   "Lista üritése",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Information);
+            if (dlgresult == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                dolgozokCombo.Items.Clear();
+                dolgozok.Clear();
+            }
+        }
     }
 }

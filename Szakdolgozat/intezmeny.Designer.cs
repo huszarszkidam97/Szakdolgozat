@@ -99,6 +99,7 @@
             this.gyermekKereseseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gyermekKereseseButton.BackgroundImage")));
             this.gyermekKereseseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gyermekKereseseButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gyermekKereseseButton.Enabled = false;
             this.gyermekKereseseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekKereseseButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekKereseseButton.ForeColor = System.Drawing.Color.Aquamarine;
@@ -117,6 +118,7 @@
             this.gyermekFelveteleButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gyermekFelveteleButton.BackgroundImage")));
             this.gyermekFelveteleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gyermekFelveteleButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gyermekFelveteleButton.Enabled = false;
             this.gyermekFelveteleButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gyermekFelveteleButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gyermekFelveteleButton.ForeColor = System.Drawing.Color.Aquamarine;
@@ -135,6 +137,7 @@
             this.csoportHozzaadButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("csoportHozzaadButton.BackgroundImage")));
             this.csoportHozzaadButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.csoportHozzaadButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.csoportHozzaadButton.Enabled = false;
             this.csoportHozzaadButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.csoportHozzaadButton.Font = new System.Drawing.Font("Myanmar Text", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.csoportHozzaadButton.ForeColor = System.Drawing.Color.Aquamarine;

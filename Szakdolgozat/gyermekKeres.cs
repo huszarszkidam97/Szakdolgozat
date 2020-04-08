@@ -89,6 +89,8 @@ namespace Szakdolgozat
             gyVErvenyesLabel.Visible = false;
             gyVervenyesText.Visible = false;
             HHHvagyHHErvenyesText.Visible = false;
+            torles_Button.Visible = false;
+            mentesButton.Visible = false;
             groupBox1.Enabled = false;
             string gyermekNeve = "";
             string szulIdo = "";

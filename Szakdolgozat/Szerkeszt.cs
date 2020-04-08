@@ -68,6 +68,7 @@ namespace Szakdolgozat
 
             box_szerkesztes.Enabled = false;
             mentesButton.Enabled = false;
+            button2.Enabled = false;
             if (dolgozok_View.SelectedItems.Count > 0)
             {
                 button1.Enabled = true;
@@ -269,6 +270,7 @@ namespace Szakdolgozat
         {
             box_szerkesztes.Enabled = true;
             mentesButton.Enabled = true;
+            button2.Enabled = true;
         }
 
         private void dolgozókToolStripMenuItem_Click(object sender, EventArgs e)
@@ -303,6 +305,35 @@ namespace Szakdolgozat
         {
             this.Hide();
             Program.intezmenyszerkeszt.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dlgresult = MessageBox.Show("Biztosan törli a programból?",
+            "Törlés",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Information);
+            if (dlgresult == DialogResult.No)
+            {
+                return;
+            }
+            else
+            {
+                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                Program.sqlCommand.Connection = Program.conn;
+                Program.sqlCommand.CommandText = "DELETE FROM `dolgozok` WHERE dolgozoAzon= '" + azon + "'";
+                Program.sqlCommand.ExecuteNonQuery();
+                dolgozok_View.Clear();
+                string sql = "SELECT dolgozoNeve FROM dolgozok";
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        dolgozok_View.Items.Add(rdr.GetString(0));
+                    }
+                }
+            }
         }
     }
 }

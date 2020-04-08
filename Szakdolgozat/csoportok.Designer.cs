@@ -53,6 +53,7 @@
             this.csopNevTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.torles_Button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.csoportLetszamNum)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -139,6 +140,7 @@
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.BackgroundImage = global::Szakdolgozat.Properties.Resources.hiclipart1;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.torles_Button);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.keszCsoportCombo);
             this.groupBox1.Controls.Add(this.label7);
@@ -370,6 +372,18 @@
             this.kezdőlapToolStripMenuItem.Text = "Kezdőlap";
             this.kezdőlapToolStripMenuItem.Click += new System.EventHandler(this.kezdőlapToolStripMenuItem_Click);
             // 
+            // torles_Button
+            // 
+            this.torles_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("torles_Button.BackgroundImage")));
+            this.torles_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.torles_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.torles_Button.Location = new System.Drawing.Point(582, 234);
+            this.torles_Button.Name = "torles_Button";
+            this.torles_Button.Size = new System.Drawing.Size(43, 31);
+            this.torles_Button.TabIndex = 22;
+            this.torles_Button.UseVisualStyleBackColor = true;
+            this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
+            // 
             // csoportok
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,5 +442,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button intHozzaadButton;
+        private System.Windows.Forms.Button torles_Button;
     }
 }

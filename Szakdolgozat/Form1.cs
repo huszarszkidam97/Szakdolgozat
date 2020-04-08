@@ -56,7 +56,7 @@ namespace Szakdolgozat
             }
             else
             {
-                button1.Enabled = true;
+                button1.Enabled = false;
                 menuStrip1.Enabled = true;
                 button2.Enabled = true;
                 button3.Enabled = true;
@@ -129,7 +129,6 @@ namespace Szakdolgozat
 
         private void button5_Click(object sender, EventArgs e)
         {
-
             bool mehet = false;
             string sql = "SELECT felhasznalo, jelszo FROM user";
             using (var cmd = new MySqlCommand(sql, Program.conn))
@@ -148,16 +147,15 @@ namespace Szakdolgozat
                         groupBox2.Visible = false;
                         mehet = true;
                     }
-                    else
-                    {
-                        MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    }
+                }
+                if (mehet == false)
+                {
+                    MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 }
             }
             if (mehet)
             {
                 this.Refresh();
-
                 string sql2 = "SELECT * FROM intezmeny";
                 using (var cmd2 = new MySqlCommand(sql2, Program.conn))
                 {
@@ -177,9 +175,9 @@ namespace Szakdolgozat
                 }
             }
         }
-
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
+            bool mehet = false;
             if (Convert.ToInt32(e.KeyChar) == 13)
             {
                 string sql = "SELECT felhasznalo, jelszo FROM user";
@@ -197,16 +195,17 @@ namespace Szakdolgozat
                             button4.Visible = true;
                             groupBox1.Visible = true;
                             groupBox2.Visible = false;
+                            kijelentkezes_Button.Visible = true;
+                            mehet = true;
                         }
-                        else
-                        {
-                            MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        }
+                    }
+                    if (mehet == false)
+                    {
+                        MessageBox.Show("Rossz felhasználónév vagy jelszó!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     }
                 }
             }
         }
-
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             
