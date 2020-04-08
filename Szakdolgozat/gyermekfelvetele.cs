@@ -49,231 +49,273 @@ namespace Szakdolgozat
 
         private void mentesButton_Click(object sender, EventArgs e)
         {
-            bool vaneGyV;
-            if (gyVErvenyesMask.Text != "")
+            AdatokBeolvasasa();
+            foreach (var item in adatok)
             {
-                 vaneGyV = true;
-            }
-            else
-            {
-                vaneGyV = false;
-            }
-            bool vaneHHvagyHHH = false;
-            bool ellenoriz = true;
-            label8.Visible = false;
-            gyermekNeveTextBox.BackColor = Color.White;
-            anyjaNeveTextBox.BackColor = Color.White;
-            omAzonMask.BackColor = Color.White;
-            csoportKivalaszCombo.BackColor = Color.White;
-            gyVErvenyesMask.BackColor = Color.White;
-            ervenyesMask.BackColor = Color.White;
-            
-            string hibauzenet = "";
-            string gyermekNeve = "";
-            DateTime szuletesiIdo = DateTime.Now;
-            string omazon = "0000000000";
-            string anyjaNeve = "";
-            string gyV = "";
-            string gyVErvenyes = "";
-            string hhVAGYhhh = "";
-            string Hervenyes = "";
-            string csoport = "";
-            string neme = neme_comboBox.SelectedItem.ToString();
-            gyermekNeve = gyermekNeveTextBox.Text;
-            szuletesiIdo = Convert.ToDateTime(szulIdoPicker.Value.ToShortDateString());
-            omazon = Convert.ToString(omAzonMask.Text);
-            anyjaNeve = anyjaNeveTextBox.Text;
-            gyV = gyVHatTextBox.Text;
-            gyVErvenyes = gyVErvenyesMask.Text;
-            Hervenyes = ervenyesMask.Text;
-            
-            //Gyermek Neve Mező Ellenőrzése
-            if (gyermekNeve == "" || gyermekNeve.Length >= 50)
-            {
-                ellenoriz = false;
-                hibauzenet = "A pirossal jelölt mezők hibásak!";
-                gyermekNeveTextBox.BackColor = Color.Red;
-            }
-            if (gyermekNeve.Length > 0)
-                for (int i = 0; i < gyermekNeve.Length; i++)
+                if (item.csoportnev == csoportKivalaszCombo.SelectedItem.ToString())
                 {
-                    if (Char.IsDigit(gyermekNeve[i]) == true)
+                    if (item.csoportLetszam < item.MaxCsoportLetszam)
                     {
-                        ellenoriz = false;
-                        hibauzenet = "A pirossal jelölt mezők hibásak!";
-                        gyermekNeveTextBox.BackColor = Color.Red;
+                        bool vaneGyV;
+                        if (gyVErvenyesMask.Text != "")
+                        {
+                            vaneGyV = true;
+                        }
+                        else
+                        {
+                            vaneGyV = false;
+                        }
+                        bool vaneHHvagyHHH = false;
+                        bool ellenoriz = true;
+                        label8.Visible = false;
+                        gyermekNeveTextBox.BackColor = Color.White;
+                        anyjaNeveTextBox.BackColor = Color.White;
+                        omAzonMask.BackColor = Color.White;
+                        csoportKivalaszCombo.BackColor = Color.White;
+                        gyVErvenyesMask.BackColor = Color.White;
+                        ervenyesMask.BackColor = Color.White;
+
+                        string hibauzenet = "";
+                        string gyermekNeve = "";
+                        DateTime szuletesiIdo = DateTime.Now;
+                        string omazon = "0000000000";
+                        string anyjaNeve = "";
+                        string gyV = "";
+                        string gyVErvenyes = "";
+                        string hhVAGYhhh = "";
+                        string Hervenyes = "";
+                        string csoport = "";
+                        string neme = neme_comboBox.SelectedItem.ToString();
+                        gyermekNeve = gyermekNeveTextBox.Text;
+                        szuletesiIdo = Convert.ToDateTime(szulIdoPicker.Value.ToShortDateString());
+                        omazon = Convert.ToString(omAzonMask.Text);
+                        anyjaNeve = anyjaNeveTextBox.Text;
+                        gyV = gyVHatTextBox.Text;
+                        gyVErvenyes = gyVErvenyesMask.Text;
+                        Hervenyes = ervenyesMask.Text;
+
+                        //Gyermek Neve Mező Ellenőrzése
+                        if (gyermekNeve == "" || gyermekNeve.Length >= 50)
+                        {
+                            ellenoriz = false;
+                            hibauzenet = "A pirossal jelölt mezők hibásak!";
+                            gyermekNeveTextBox.BackColor = Color.Red;
+                        }
+                        if (gyermekNeve.Length > 0)
+                            for (int i = 0; i < gyermekNeve.Length; i++)
+                            {
+                                if (Char.IsDigit(gyermekNeve[i]) == true)
+                                {
+                                    ellenoriz = false;
+                                    hibauzenet = "A pirossal jelölt mezők hibásak!";
+                                    gyermekNeveTextBox.BackColor = Color.Red;
+                                }
+                            }
+                        //
+
+                        //Születési Ideje Mező Ellenörzése
+                        if (szuletesiIdo == Convert.ToDateTime(DateTime.Now.ToShortDateString()))
+                        {
+                            hibauzenet = "A pirossal jelölt mezők hibásak!";
+                            label8.Visible = true;
+                            ellenoriz = false;
+                        }
+                        //
+
+                        //OM Azonosító Mező Ellenörzése
+                        if (omazon.Length != 11)
+                        {
+                            hibauzenet = "A pirossal jelölt mezők hibásak!";
+                            omAzonMask.BackColor = Color.Red;
+                        }
+                        //
+
+                        //Anyja Neve Mező Ellenörzése
+                        if (anyjaNeve == "" || anyjaNeve.Length >= 50)
+                        {
+                            ellenoriz = false;
+                            hibauzenet = "A pirossal jelölt mezők hibásak!";
+                            anyjaNeveTextBox.BackColor = Color.Red;
+                        }
+                        else
+                        {
+                            for (int i = 0; i < anyjaNeve.Length; i++)
+                            {
+                                if (Char.IsDigit(anyjaNeve[i]))
+                                {
+                                    ellenoriz = false;
+                                    hibauzenet = "A pirossal jelölt mezők hibásak!";
+                                    anyjaNeveTextBox.BackColor = Color.Red;
+                                }
+                            }
+                        }
+                        //
+
+                        //GyV Határozat Száma; Érvényesség Mező Ellenörzése
+                        if (gyV == "" || gyV.Length > 30)
+                        {
+                            vaneGyV = false;
+                            gyV = "nincs";
+                        }
+                        //
+
+                        //Van-e HH Vagy HHH Check Ellenőrzése
+                        if (HHvagyHHHCheck.Checked == true)
+                        {
+                            if (ervenyesMask.Text == "2   -  -")
+                            {
+                                hibauzenet = "A pirossal jelölt mezők hibásak!";
+                                ervenyesMask.BackColor = Color.Red;
+                            }
+                        }
+                        //
+
+                        //GYV érényes menü
+                        //
+                        if (gyVHatTextBox.Text != "")
+                        {
+                            for (int i = 0; i < gyVErvenyesMask.Text.Length; i++)
+                            {
+                                if (gyVErvenyesMask.Text[i] == ' ')
+                                {
+                                    ellenoriz = false;
+                                    hibauzenet = "A pirossal jelölt mezők hibásak!";
+                                    gyVErvenyesMask.BackColor = Color.Red;
+                                }
+                            }
+                        }
+
+                        //
+
+
+                        //HH Vagy HHH Érvényes Mező Ellenőrzése
+                        if (HHvagyHHHCheck.Checked == true)
+                        {
+                            for (int i = 0; i < Hervenyes.Length; i++)
+                            {
+                                if (Hervenyes[i] == ' ')
+                                {
+                                    ellenoriz = false;
+                                    hibauzenet = "A pirossal jelölt mezők hibásak!";
+                                    ervenyesMask.BackColor = Color.Red;
+                                }
+                            }
+                        }
+                        //
+
+                        //HH Vagy HHH Határozat; Érvényesség Mező Ellenörzése
+                        if (HHvagyHHHCheck.Checked == false)
+                        {
+                            hhVAGYhhh = "nincs";
+                        }
+                        else
+                        {
+                            vaneHHvagyHHH = true;
+                            foreach (var item2 in HHvagyHHHCombo.Items)
+                            {
+                                if (HHvagyHHHCombo.SelectedIndex == 0)
+                                {
+                                    hhVAGYhhh = "HH";
+                                }
+                                else
+                                {
+                                    hhVAGYhhh = "HHH";
+                                }
+                            }
+
+                        }
+                        //
+
+                        //Csoport Combo Ellenőrzése
+                        try
+                        {
+                            csoport = csoportKivalaszCombo.SelectedItem.ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            csoport = "Hibás!";
+                            csoportKivalaszCombo.BackColor = Color.Red;
+                            ellenoriz = false;
+                            hibauzenet = "A pirossal jelölt mezők hibásak!\n";
+                            MessageBox.Show(ex.Message);
+                        }
+                        //
+
+                        if (ellenoriz)
+                        {
+                            try
+                            {
+                                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                                Program.sqlCommand.Connection = Program.conn;
+                                Program.sqlCommand.CommandText = "INSERT INTO gyermekek(nev,szuletesiIdo,omazon,anyjaNeve,gyV,gyVervenyes,hhvagyhhh,ervenyes,csoport,neme) VALUES(?,?,?,?,?,?,?,?,?,?)";
+                                Program.sqlCommand.Parameters.Add("nev", MySqlDbType.VarChar).Value = gyermekNeve;
+                                Program.sqlCommand.Parameters.Add("szuletesiIdo", MySqlDbType.Date).Value = szuletesiIdo;
+                                Program.sqlCommand.Parameters.Add("omazon", MySqlDbType.VarChar).Value = omazon;
+                                Program.sqlCommand.Parameters.Add("anyjaNeve", MySqlDbType.VarChar).Value = anyjaNeve;
+                                Program.sqlCommand.Parameters.Add("gyV", MySqlDbType.VarChar).Value = gyV;
+                                if (vaneGyV)
+                                    Program.sqlCommand.Parameters.Add("gyVervenyes", MySqlDbType.VarChar).Value = gyVErvenyes;
+                                else
+                                    Program.sqlCommand.Parameters.Add("gyVervenyes", MySqlDbType.VarChar).Value = "-";
+
+                                Program.sqlCommand.Parameters.Add("hhvagyhhh", MySqlDbType.VarChar).Value = hhVAGYhhh;
+                                if (vaneHHvagyHHH)
+                                    Program.sqlCommand.Parameters.Add("ervenyes", MySqlDbType.VarChar).Value = Hervenyes;
+                                else
+                                    Program.sqlCommand.Parameters.Add("ervenyes", MySqlDbType.VarChar).Value = "-";
+                                Program.sqlCommand.Parameters.Add("csoport", MySqlDbType.VarChar).Value = csoport;
+                                Program.sqlCommand.Parameters.Add("neme", MySqlDbType.VarChar).Value = neme;
+                                Program.sqlCommand.ExecuteNonQuery();
+                                MessageBox.Show("Sikeres mentés!");
+                            }
+                            catch (Exception ex)
+                            {
+                                if (hibauzenet.Length == 0)
+                                    MessageBox.Show("Hiba történt a mentés során!" + ex.Message);
+                            }
+                        }
+                        if (hibauzenet.Length > 0)
+                            MessageBox.Show(hibauzenet);
+                        this.Refresh();
                     }
-                }
-            //
-
-            //Születési Ideje Mező Ellenörzése
-            if (szuletesiIdo == Convert.ToDateTime(DateTime.Now.ToShortDateString()))
-            {
-                hibauzenet = "A pirossal jelölt mezők hibásak!";
-                label8.Visible = true;
-                ellenoriz = false;
-            }
-            //
-
-            //OM Azonosító Mező Ellenörzése
-            if (omazon.Length != 11)
-            {
-                hibauzenet = "A pirossal jelölt mezők hibásak!";
-                omAzonMask.BackColor = Color.Red;
-            }
-            //
-
-            //Anyja Neve Mező Ellenörzése
-            if (anyjaNeve == "" || anyjaNeve.Length >= 50)
-            {
-                ellenoriz = false;
-                hibauzenet = "A pirossal jelölt mezők hibásak!";
-                anyjaNeveTextBox.BackColor = Color.Red;
-            }
-            else
-            {
-                for (int i = 0; i < anyjaNeve.Length; i++)
-                {
-                    if (Char.IsDigit(anyjaNeve[i]))
-                    {
-                        ellenoriz = false;
-                        hibauzenet = "A pirossal jelölt mezők hibásak!";
-                        anyjaNeveTextBox.BackColor = Color.Red;
-                    }
-                }
-            }
-            //
-
-            //GyV Határozat Száma; Érvényesség Mező Ellenörzése
-            if (gyV == "" || gyV.Length > 30)
-            {
-                vaneGyV = false;
-                gyV = "nincs";
-            }
-            //
-            
-            //Van-e HH Vagy HHH Check Ellenőrzése
-            if (HHvagyHHHCheck.Checked == true)
-            {
-                if (ervenyesMask.Text == "2   -  -")
-                {
-                    hibauzenet = "A pirossal jelölt mezők hibásak!";
-                    ervenyesMask.BackColor = Color.Red;
-                }
-            }
-            if (HHvagyHHHCombo.SelectedItem == null)
-            {
-                hhVAGYhhh = "nincs";
-            }
-            else
-            {
-                vaneHHvagyHHH = true;
-                if (HHvagyHHHCombo.SelectedItem.ToString() == "HH (Hátrányos helyzetű)")
-                    hhVAGYhhh = "HH";
-                else
-                    hhVAGYhhh = "HHH";
-
-            }
-            //
-
-            //GYV érényes menü
-            //
-            if (gyVHatTextBox.Text != "")
-            {
-                for (int i = 0; i < gyVErvenyesMask.Text.Length; i++)
-                {
-                    if (gyVErvenyesMask.Text[i] == ' ')
-                    {
-                        ellenoriz = false;
-                        hibauzenet = "A pirossal jelölt mezők hibásak!";
-                        gyVErvenyesMask.BackColor = Color.Red;
-                    }
-                }
-            }
-
-            //
-
-
-            //HH Vagy HHH Érvényes Mező Ellenőrzése
-            if (HHvagyHHHCheck.Checked == true)
-            {
-                for (int i = 0; i < Hervenyes.Length; i++)
-                {
-                    if (Hervenyes[i] == ' ')
-                    {
-                        ellenoriz = false;
-                        hibauzenet = "A pirossal jelölt mezők hibásak!";
-                        ervenyesMask.BackColor = Color.Red;
-                    }
-                }
-            }
-            //
-            
-            //HH Vagy HHH Határozat; Érvényesség Mező Ellenörzése
-            if (HHvagyHHHCheck.Checked == false)
-            {
-                hhVAGYhhh = "nincs";
-            }
-            //
-
-            //Csoport Combo Ellenőrzése
-            try
-            {
-                csoport = csoportKivalaszCombo.SelectedItem.ToString();
-            }
-            catch (Exception ex)
-            {
-                csoport = "Hibás!";
-                csoportKivalaszCombo.BackColor = Color.Red;
-                ellenoriz = false;
-                hibauzenet = "A pirossal jelölt mezők hibásak!\n";
-                MessageBox.Show(ex.Message);
-            }
-            //
-            
-            if (ellenoriz)
-            {
-                try
-                {
-                    Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
-                    Program.sqlCommand.Connection = Program.conn;
-                    Program.sqlCommand.CommandText = "INSERT INTO gyermekek(nev,szuletesiIdo,omazon,anyjaNeve,gyV,gyVervenyes,hhvagyhhh,ervenyes,csoport,neme) VALUES(?,?,?,?,?,?,?,?,?,?)";
-                    Program.sqlCommand.Parameters.Add("nev", MySqlDbType.VarChar).Value = gyermekNeve;
-                    Program.sqlCommand.Parameters.Add("szuletesiIdo", MySqlDbType.Date).Value = szuletesiIdo;
-                    Program.sqlCommand.Parameters.Add("omazon", MySqlDbType.VarChar).Value = omazon;
-                    Program.sqlCommand.Parameters.Add("anyjaNeve", MySqlDbType.VarChar).Value = anyjaNeve;
-                    Program.sqlCommand.Parameters.Add("gyV", MySqlDbType.VarChar).Value = gyV;
-                    if (vaneGyV)
-                        Program.sqlCommand.Parameters.Add("gyVervenyes", MySqlDbType.VarChar).Value = gyVErvenyes;
                     else
-                        Program.sqlCommand.Parameters.Add("gyVervenyes", MySqlDbType.VarChar).Value = "-";
-                    Program.sqlCommand.Parameters.Add("hhvagyhhh", MySqlDbType.VarChar).Value = hhVAGYhhh;
-                    if(vaneHHvagyHHH)
-                        Program.sqlCommand.Parameters.Add("ervenyes", MySqlDbType.VarChar).Value = Hervenyes;
-                    else
-                        Program.sqlCommand.Parameters.Add("ervenyes", MySqlDbType.VarChar).Value = "-";
-                    Program.sqlCommand.Parameters.Add("csoport", MySqlDbType.VarChar).Value = csoport;
-                    Program.sqlCommand.Parameters.Add("neme", MySqlDbType.VarChar).Value = neme;
-                    Program.sqlCommand.ExecuteNonQuery();
-                    MessageBox.Show("Sikeres mentés!");
-                }
-                catch (Exception ex)
-                {
-                    if (hibauzenet.Length == 0)
-                        MessageBox.Show("Hiba történt a mentés során!"+ex.Message);
+                    {
+                        MessageBox.Show(item.csoportnev + " már elérte a maximum létszámot!");
+                    }
                 }
             }
-            if (hibauzenet.Length>0)
-            MessageBox.Show(hibauzenet);
-            this.Refresh();
+            
         }
 
+        class csoportok
+        {
+            public int azon;
+            public string csoportnev;
+            public int csoportLetszam;
+            public int MaxCsoportLetszam;
+
+            public csoportok(int azon, string csoportnev, int csoportLetszam, int MaxCsoportLetszam)
+            {
+                this.azon = azon;
+                this.csoportnev = csoportnev;
+                this.csoportLetszam = csoportLetszam;
+                this.MaxCsoportLetszam = MaxCsoportLetszam;
+            }
+        }
+        List<csoportok> adatok = new List<csoportok>();
         private void gyermekfelvetele_Load(object sender, EventArgs e)
         {
             neme_comboBox.SelectedIndex = 0;
             HHvagyHHHCombo.SelectedItem = "HH (Hátrányos helyzetű)";
             gyermekFelveteleButton.Enabled = false;
-            string sql = "SELECT csoportNeve FROM csoportok";
+            AdatokBeolvasasa();
+        }
+
+        private void AdatokBeolvasasa()
+        {
+            csoportKivalaszCombo.Items.Clear();
+            adatok.Clear();
+            string sql = "SELECT csoportNeve, csoportLetszam,azon FROM csoportok";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -281,10 +323,25 @@ namespace Szakdolgozat
                 {
                     csoportKivalaszCombo.Items.Add(rdr.GetString(0));
                     csoportKivalaszCombo.SelectedItem = rdr.GetString(0);
+                    adatok.Add(new csoportok(Convert.ToInt32(rdr.GetString(2)), rdr.GetString(0),0, Convert.ToInt32(rdr.GetString(1))));
                 }
             }
-        }
+            foreach (var item in adatok)
+            {
+                int db = 0;
+                sql = "SELECT csoport FROM gyermekek WHERE csoport = '"+item.csoportnev+"'";
+                using (var cmd = new MySqlCommand(sql, Program.conn))
+                {
+                    MySqlDataReader rdr = cmd.ExecuteReader();
+                    while (rdr.Read())
+                    {
+                        db++;
+                    }
+                }
+                item.csoportLetszam = db;
+            }
 
+        }
         private void intHozzaadButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -329,17 +386,7 @@ namespace Szakdolgozat
         {
             HHvagyHHHCombo.SelectedItem = "HH (Hátrányos helyzetű)";
             gyermekFelveteleButton.Enabled = false;
-            csoportKivalaszCombo.Items.Clear();
-            string sql = "SELECT csoportNeve FROM csoportok";
-            using (var cmd = new MySqlCommand(sql, Program.conn))
-            {
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    csoportKivalaszCombo.Items.Add(rdr.GetString(0));
-                    csoportKivalaszCombo.SelectedItem = rdr.GetString(0);
-                }
-            }
+            AdatokBeolvasasa();
         }
     }
 }

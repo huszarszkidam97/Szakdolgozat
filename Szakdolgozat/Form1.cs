@@ -63,13 +63,6 @@ namespace Szakdolgozat
                 button4.Enabled = true;
             }
         }
-
-        private void sugóToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Ez a súgó szövege", "Súgó");
-        }
-
-
         private void button3_Click(object sender, EventArgs e)
         {
             gyermekfelvetele gyermekfelv = new gyermekfelvetele();

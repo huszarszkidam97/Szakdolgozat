@@ -73,7 +73,7 @@ namespace Szakdolgozat
                 csoportokSzama = item.csoportokSzama;
                 foreach (var telephely in telephelyek)
                 {
-                    telephelyEk += telephely + ",";
+                    telephelyEk += telephely + ";";
                 }
             }
 

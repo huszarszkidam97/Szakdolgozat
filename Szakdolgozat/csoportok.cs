@@ -210,6 +210,7 @@ namespace Szakdolgozat
                 string dolgozo = uj.nev;
                 dolgozokCombo.Items.Add(dolgozo);
                 MessageBox.Show("Hozzáadva!");
+                dolgozokCombo.SelectedItem = dolgozo;
             }
             else if (hibakod.Length > 0 && ellenoriz == false)
             {
@@ -219,19 +220,31 @@ namespace Szakdolgozat
 
         private void csoportok_Load(object sender, EventArgs e)
         {
+
             sql = "SELECT telephelyEk FROM intezmeny";
+
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    string[] tordel = rdr.GetString(0).Split(',');
-                    
+                    string[] tordel = rdr.GetString(0).Split(';');
+                    List<string> Lista = new List<string>();
                     foreach (var item in tordel)
                     {
-                        telephelyKivalaszt.Items.Add(item);
+                        if (item.ToString().Length > 0)
+                        {
+                            Lista.Add(item.ToString());
+                        }
                     }
-                    telephelyKivalaszt.SelectedItem = tordel[0];
+                    foreach (var item in Lista)
+                    {
+                        if (item != " ")
+                        {
+                            telephelyKivalaszt.Items.Add(item);
+                            telephelyKivalaszt.SelectedItem = item;
+                        }
+                    }
                 }
             }
             csoportHozzaadButton.Enabled = false;
@@ -244,6 +257,10 @@ namespace Szakdolgozat
                     keszCsoportCombo.Items.Add(rdr.GetString(0));
                     keszCsoportok.Add(rdr.GetString(0));
                 }
+            }
+            if (keszCsoportCombo.Items.Count > 0)
+            {
+                keszCsoportCombo.SelectedIndex = 0;
             }
             int csoportokSzama = 0;
             sql = "SELECT csoportokSzama FROM intezmeny";

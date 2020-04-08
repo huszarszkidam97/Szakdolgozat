@@ -51,7 +51,7 @@ namespace Szakdolgozat
                     intezmenyCime = rdr.GetString(1);
                     csoportokSzama = rdr.GetString(2);
                     tordeloTelepek = rdr.GetString(3);
-                    string[] tordel = tordeloTelepek.Split(',');
+                    string[] tordel = tordeloTelepek.Split(';');
                     for (int i = 0; i < tordel.Length; i++)
                     {
                         telephelyEk.Add(tordel[i]);
@@ -134,7 +134,7 @@ namespace Szakdolgozat
                 string telephelyEk = "";
                 foreach (var item in comboBox1.Items)
                 {
-                    telephelyEk += item + ",";
+                    telephelyEk += item + ";";
                 }
                 Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
                 Program.sqlCommand.Connection = Program.conn;

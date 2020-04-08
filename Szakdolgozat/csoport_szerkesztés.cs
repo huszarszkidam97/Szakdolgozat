@@ -35,7 +35,7 @@ namespace Szakdolgozat
                 MySqlDataReader rdr = cmd.ExecuteReader();
                 while (rdr.Read())
                 {
-                    string[] tordel = rdr.GetString(0).Split(',');
+                    string[] tordel = rdr.GetString(0).Split(';');
                     for (int i = 0; i < tordel.Length; i++)
                     {
                         if (tordel[i].ToString().Length > 5)

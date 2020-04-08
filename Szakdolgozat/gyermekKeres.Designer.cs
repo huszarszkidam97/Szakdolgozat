@@ -556,7 +556,7 @@
             this.MinimumSize = new System.Drawing.Size(990, 555);
             this.Name = "gyermekKeres";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gyermek Keresése / Szerkesztése";
+            this.Text = " ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.gyermekKeres_FormClosing);
             this.Load += new System.EventHandler(this.gyermekKeres_Load);
             this.menuStrip1.ResumeLayout(false);
