@@ -97,7 +97,7 @@
             this.listView1.Location = new System.Drawing.Point(12, 168);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(196, 286);
-            this.listView1.TabIndex = 12;
+            this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Tile;
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
@@ -108,7 +108,7 @@
             this.csoportSelectCombo.Location = new System.Drawing.Point(12, 110);
             this.csoportSelectCombo.Name = "csoportSelectCombo";
             this.csoportSelectCombo.Size = new System.Drawing.Size(196, 21);
-            this.csoportSelectCombo.TabIndex = 11;
+            this.csoportSelectCombo.TabIndex = 1;
             this.csoportSelectCombo.SelectedIndexChanged += new System.EventHandler(this.csoportSelectCombo_SelectedIndexChanged);
             // 
             // gyermekKereseseButton
@@ -124,7 +124,7 @@
             this.gyermekKereseseButton.Location = new System.Drawing.Point(717, 47);
             this.gyermekKereseseButton.Name = "gyermekKereseseButton";
             this.gyermekKereseseButton.Size = new System.Drawing.Size(150, 50);
-            this.gyermekKereseseButton.TabIndex = 16;
+            this.gyermekKereseseButton.TabIndex = 20;
             this.gyermekKereseseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekKereseseButton.UseVisualStyleBackColor = false;
             this.gyermekKereseseButton.Click += new System.EventHandler(this.gyermekKereseseButton_Click);
@@ -142,7 +142,7 @@
             this.gyermekFelveteleButton.Location = new System.Drawing.Point(539, 47);
             this.gyermekFelveteleButton.Name = "gyermekFelveteleButton";
             this.gyermekFelveteleButton.Size = new System.Drawing.Size(150, 50);
-            this.gyermekFelveteleButton.TabIndex = 15;
+            this.gyermekFelveteleButton.TabIndex = 19;
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
             this.gyermekFelveteleButton.Click += new System.EventHandler(this.gyermekFelveteleButton_Click);
@@ -160,7 +160,7 @@
             this.csoportHozzaadButton.Location = new System.Drawing.Point(326, 47);
             this.csoportHozzaadButton.Name = "csoportHozzaadButton";
             this.csoportHozzaadButton.Size = new System.Drawing.Size(190, 50);
-            this.csoportHozzaadButton.TabIndex = 14;
+            this.csoportHozzaadButton.TabIndex = 18;
             this.csoportHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.csoportHozzaadButton.UseVisualStyleBackColor = false;
             this.csoportHozzaadButton.Click += new System.EventHandler(this.csoportHozzaadButton_Click);
@@ -179,7 +179,7 @@
             this.intHozzaadButton.Location = new System.Drawing.Point(112, 47);
             this.intHozzaadButton.Name = "intHozzaadButton";
             this.intHozzaadButton.Size = new System.Drawing.Size(190, 50);
-            this.intHozzaadButton.TabIndex = 13;
+            this.intHozzaadButton.TabIndex = 17;
             this.intHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.intHozzaadButton.UseVisualStyleBackColor = false;
             this.intHozzaadButton.Click += new System.EventHandler(this.intHozzaadButton_Click);
@@ -233,7 +233,7 @@
             this.neme_comboBox.Location = new System.Drawing.Point(471, 114);
             this.neme_comboBox.Name = "neme_comboBox";
             this.neme_comboBox.Size = new System.Drawing.Size(94, 21);
-            this.neme_comboBox.TabIndex = 40;
+            this.neme_comboBox.TabIndex = 7;
             // 
             // label9
             // 
@@ -255,7 +255,7 @@
             this.torles_Button.Location = new System.Drawing.Point(61, 295);
             this.torles_Button.Name = "torles_Button";
             this.torles_Button.Size = new System.Drawing.Size(101, 49);
-            this.torles_Button.TabIndex = 37;
+            this.torles_Button.TabIndex = 16;
             this.torles_Button.UseVisualStyleBackColor = true;
             this.torles_Button.Visible = false;
             this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
@@ -268,7 +268,7 @@
             this.mentesButton.Location = new System.Drawing.Point(560, 295);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(101, 49);
-            this.mentesButton.TabIndex = 36;
+            this.mentesButton.TabIndex = 15;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Visible = false;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
@@ -278,7 +278,7 @@
             this.HHHvagyHHErvenyesText.Location = new System.Drawing.Point(293, 310);
             this.HHHvagyHHErvenyesText.Name = "HHHvagyHHErvenyesText";
             this.HHHvagyHHErvenyesText.Size = new System.Drawing.Size(125, 20);
-            this.HHHvagyHHErvenyesText.TabIndex = 10;
+            this.HHHvagyHHErvenyesText.TabIndex = 14;
             this.HHHvagyHHErvenyesText.Visible = false;
             // 
             // hhVAGYhhhText
@@ -286,7 +286,7 @@
             this.hhVAGYhhhText.Location = new System.Drawing.Point(214, 284);
             this.hhVAGYhhhText.Name = "hhVAGYhhhText";
             this.hhVAGYhhhText.Size = new System.Drawing.Size(154, 20);
-            this.hhVAGYhhhText.TabIndex = 9;
+            this.hhVAGYhhhText.TabIndex = 13;
             this.hhVAGYhhhText.Visible = false;
             // 
             // gyVervenyesText
@@ -294,7 +294,7 @@
             this.gyVervenyesText.Location = new System.Drawing.Point(550, 224);
             this.gyVervenyesText.Name = "gyVervenyesText";
             this.gyVervenyesText.Size = new System.Drawing.Size(111, 20);
-            this.gyVervenyesText.TabIndex = 7;
+            this.gyVervenyesText.TabIndex = 11;
             this.gyVervenyesText.Visible = false;
             // 
             // szulIdoText
@@ -302,7 +302,7 @@
             this.szulIdoText.Location = new System.Drawing.Point(214, 114);
             this.szulIdoText.Name = "szulIdoText";
             this.szulIdoText.Size = new System.Drawing.Size(100, 20);
-            this.szulIdoText.TabIndex = 3;
+            this.szulIdoText.TabIndex = 6;
             // 
             // label8
             // 
@@ -322,7 +322,7 @@
             this.csoportKivalaszCombo.Location = new System.Drawing.Point(471, 79);
             this.csoportKivalaszCombo.Name = "csoportKivalaszCombo";
             this.csoportKivalaszCombo.Size = new System.Drawing.Size(107, 21);
-            this.csoportKivalaszCombo.TabIndex = 2;
+            this.csoportKivalaszCombo.TabIndex = 5;
             // 
             // label7
             // 
@@ -355,7 +355,7 @@
             this.HHvagyHHHCheck.Location = new System.Drawing.Point(214, 261);
             this.HHvagyHHHCheck.Name = "HHvagyHHHCheck";
             this.HHvagyHHHCheck.Size = new System.Drawing.Size(15, 14);
-            this.HHvagyHHHCheck.TabIndex = 8;
+            this.HHvagyHHHCheck.TabIndex = 12;
             this.HHvagyHHHCheck.UseVisualStyleBackColor = true;
             this.HHvagyHHHCheck.CheckedChanged += new System.EventHandler(this.HHvagyHHHCheck_CheckedChanged);
             // 
@@ -364,7 +364,7 @@
             this.gyVHatTextBox.Location = new System.Drawing.Point(300, 224);
             this.gyVHatTextBox.Name = "gyVHatTextBox";
             this.gyVHatTextBox.Size = new System.Drawing.Size(161, 20);
-            this.gyVHatTextBox.TabIndex = 6;
+            this.gyVHatTextBox.TabIndex = 10;
             this.gyVHatTextBox.TextChanged += new System.EventHandler(this.gyVHatTextBox_TextChanged);
             // 
             // anyjaNeveTextBox
@@ -372,7 +372,7 @@
             this.anyjaNeveTextBox.Location = new System.Drawing.Point(214, 185);
             this.anyjaNeveTextBox.Name = "anyjaNeveTextBox";
             this.anyjaNeveTextBox.Size = new System.Drawing.Size(179, 20);
-            this.anyjaNeveTextBox.TabIndex = 5;
+            this.anyjaNeveTextBox.TabIndex = 9;
             // 
             // omAzonMask
             // 
@@ -380,14 +380,14 @@
             this.omAzonMask.Mask = "00000000000";
             this.omAzonMask.Name = "omAzonMask";
             this.omAzonMask.Size = new System.Drawing.Size(179, 20);
-            this.omAzonMask.TabIndex = 4;
+            this.omAzonMask.TabIndex = 8;
             // 
             // gyermekNeveTextBox
             // 
             this.gyermekNeveTextBox.Location = new System.Drawing.Point(214, 79);
             this.gyermekNeveTextBox.Name = "gyermekNeveTextBox";
             this.gyermekNeveTextBox.Size = new System.Drawing.Size(179, 20);
-            this.gyermekNeveTextBox.TabIndex = 1;
+            this.gyermekNeveTextBox.TabIndex = 4;
             // 
             // HervenyesLabel
             // 
@@ -487,7 +487,7 @@
             this.szerkesztButton.Location = new System.Drawing.Point(12, 460);
             this.szerkesztButton.Name = "szerkesztButton";
             this.szerkesztButton.Size = new System.Drawing.Size(101, 44);
-            this.szerkesztButton.TabIndex = 33;
+            this.szerkesztButton.TabIndex = 3;
             this.szerkesztButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.szerkesztButton.UseVisualStyleBackColor = false;
             this.szerkesztButton.Click += new System.EventHandler(this.button1_Click);

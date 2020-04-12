@@ -34,6 +34,7 @@
             this.csoportHozzaadButton = new System.Windows.Forms.Button();
             this.intHozzaadButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.torles_Button = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.keszCsoportCombo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.csopNevTextBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.kezdőlapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.torles_Button = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.csoportLetszamNum)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -72,7 +72,7 @@
             this.gyermekKereseseButton.Location = new System.Drawing.Point(617, 47);
             this.gyermekKereseseButton.Name = "gyermekKereseseButton";
             this.gyermekKereseseButton.Size = new System.Drawing.Size(150, 50);
-            this.gyermekKereseseButton.TabIndex = 13;
+            this.gyermekKereseseButton.TabIndex = 14;
             this.gyermekKereseseButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekKereseseButton.UseVisualStyleBackColor = false;
             this.gyermekKereseseButton.Click += new System.EventHandler(this.gyermekKereseseButton_Click);
@@ -90,7 +90,7 @@
             this.gyermekFelveteleButton.Location = new System.Drawing.Point(439, 47);
             this.gyermekFelveteleButton.Name = "gyermekFelveteleButton";
             this.gyermekFelveteleButton.Size = new System.Drawing.Size(150, 50);
-            this.gyermekFelveteleButton.TabIndex = 12;
+            this.gyermekFelveteleButton.TabIndex = 13;
             this.gyermekFelveteleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.gyermekFelveteleButton.UseVisualStyleBackColor = false;
             this.gyermekFelveteleButton.Click += new System.EventHandler(this.gyermekFelveteleButton_Click);
@@ -108,7 +108,7 @@
             this.csoportHozzaadButton.Location = new System.Drawing.Point(226, 47);
             this.csoportHozzaadButton.Name = "csoportHozzaadButton";
             this.csoportHozzaadButton.Size = new System.Drawing.Size(190, 50);
-            this.csoportHozzaadButton.TabIndex = 11;
+            this.csoportHozzaadButton.TabIndex = 12;
             this.csoportHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.csoportHozzaadButton.UseVisualStyleBackColor = false;
             this.csoportHozzaadButton.Click += new System.EventHandler(this.csoportHozzaadButton_Click);
@@ -127,7 +127,7 @@
             this.intHozzaadButton.Location = new System.Drawing.Point(12, 47);
             this.intHozzaadButton.Name = "intHozzaadButton";
             this.intHozzaadButton.Size = new System.Drawing.Size(190, 50);
-            this.intHozzaadButton.TabIndex = 10;
+            this.intHozzaadButton.TabIndex = 11;
             this.intHozzaadButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.intHozzaadButton.UseVisualStyleBackColor = false;
             this.intHozzaadButton.Click += new System.EventHandler(this.intHozzaadButton_Click);
@@ -166,6 +166,18 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             // 
+            // torles_Button
+            // 
+            this.torles_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("torles_Button.BackgroundImage")));
+            this.torles_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.torles_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.torles_Button.Location = new System.Drawing.Point(582, 234);
+            this.torles_Button.Name = "torles_Button";
+            this.torles_Button.Size = new System.Drawing.Size(43, 31);
+            this.torles_Button.TabIndex = 8;
+            this.torles_Button.UseVisualStyleBackColor = true;
+            this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -182,7 +194,7 @@
             this.keszCsoportCombo.Location = new System.Drawing.Point(52, 258);
             this.keszCsoportCombo.Name = "keszCsoportCombo";
             this.keszCsoportCombo.Size = new System.Drawing.Size(174, 31);
-            this.keszCsoportCombo.TabIndex = 9;
+            this.keszCsoportCombo.TabIndex = 10;
             // 
             // label7
             // 
@@ -274,7 +286,7 @@
             this.hozzaadButton.Location = new System.Drawing.Point(499, 233);
             this.hozzaadButton.Name = "hozzaadButton";
             this.hozzaadButton.Size = new System.Drawing.Size(77, 32);
-            this.hozzaadButton.TabIndex = 7;
+            this.hozzaadButton.TabIndex = 6;
             this.hozzaadButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.hozzaadButton.UseVisualStyleBackColor = false;
             this.hozzaadButton.Click += new System.EventHandler(this.hozzaadButton_Click);
@@ -320,7 +332,7 @@
             this.dolgozokCombo.Location = new System.Drawing.Point(319, 235);
             this.dolgozokCombo.Name = "dolgozokCombo";
             this.dolgozokCombo.Size = new System.Drawing.Size(174, 31);
-            this.dolgozokCombo.TabIndex = 6;
+            this.dolgozokCombo.TabIndex = 7;
             // 
             // mentesButton
             // 
@@ -332,7 +344,7 @@
             this.mentesButton.Location = new System.Drawing.Point(319, 272);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(103, 40);
-            this.mentesButton.TabIndex = 8;
+            this.mentesButton.TabIndex = 9;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
@@ -371,18 +383,6 @@
             this.kezdőlapToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.kezdőlapToolStripMenuItem.Text = "Kezdőlap";
             this.kezdőlapToolStripMenuItem.Click += new System.EventHandler(this.kezdőlapToolStripMenuItem_Click);
-            // 
-            // torles_Button
-            // 
-            this.torles_Button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("torles_Button.BackgroundImage")));
-            this.torles_Button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.torles_Button.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.torles_Button.Location = new System.Drawing.Point(582, 234);
-            this.torles_Button.Name = "torles_Button";
-            this.torles_Button.Size = new System.Drawing.Size(43, 31);
-            this.torles_Button.TabIndex = 22;
-            this.torles_Button.UseVisualStyleBackColor = true;
-            this.torles_Button.Click += new System.EventHandler(this.torles_Button_Click);
             // 
             // csoportok
             // 

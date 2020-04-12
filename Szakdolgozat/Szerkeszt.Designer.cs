@@ -47,6 +47,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.box_szerkesztes.SuspendLayout();
             this.SuspendLayout();
@@ -57,8 +58,8 @@
             this.dolgozok_View.HideSelection = false;
             this.dolgozok_View.Location = new System.Drawing.Point(12, 63);
             this.dolgozok_View.Name = "dolgozok_View";
-            this.dolgozok_View.Size = new System.Drawing.Size(132, 269);
-            this.dolgozok_View.TabIndex = 0;
+            this.dolgozok_View.Size = new System.Drawing.Size(132, 231);
+            this.dolgozok_View.TabIndex = 2;
             this.dolgozok_View.UseCompatibleStateImageBehavior = false;
             this.dolgozok_View.View = System.Windows.Forms.View.Tile;
             this.dolgozok_View.SelectedIndexChanged += new System.EventHandler(this.dolgozok_View_SelectedIndexChanged);
@@ -126,7 +127,7 @@
             this.mentesButton.Location = new System.Drawing.Point(525, 37);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(92, 49);
-            this.mentesButton.TabIndex = 7;
+            this.mentesButton.TabIndex = 8;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
@@ -204,7 +205,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 37);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 10;
+            this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Keresés....";
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -218,7 +219,7 @@
             this.button1.Location = new System.Drawing.Point(156, 37);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(97, 49);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 3;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -230,9 +231,21 @@
             this.button2.Location = new System.Drawing.Point(429, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 49);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 7;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(12, 299);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 37);
+            this.button3.TabIndex = 9;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Szerkeszt
             // 
@@ -241,6 +254,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(629, 348);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -287,5 +301,6 @@
         private System.Windows.Forms.ToolStripMenuItem csoportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dolgozókToolStripMenuItem;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

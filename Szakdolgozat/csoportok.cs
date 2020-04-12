@@ -170,6 +170,8 @@ namespace Szakdolgozat
             {
                 MessageBox.Show(hibakod);
             }
+            sql = "SELECT csoportNeve FROM csoportok";
+            keszCsoport(sql);
         }
 
         private void hozzaadButton_Click(object sender, EventArgs e)
@@ -217,6 +219,33 @@ namespace Szakdolgozat
                 MessageBox.Show(hibakod);
             }
         }
+        private void keszCsoport(string sql)
+        {
+            keszCsoportCombo.Items.Clear();
+            using (var cmd = new MySqlCommand(sql, Program.conn))
+            {
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    keszCsoportCombo.Items.Add(rdr.GetString(0));
+                    keszCsoportok.Add(rdr.GetString(0));
+                }
+            }
+            if (keszCsoportCombo.Items.Count > 0)
+            {
+                keszCsoportCombo.SelectedIndex = 0;
+            }
+            if (keszCsoportCombo.Items.Count == 0)
+            {
+                keszCsoportCombo.Text = "Üres....";
+            }
+            else
+            {
+                keszCsoportCombo.SelectedIndex = 0;
+            }
+            
+                
+        }
 
         private void csoportok_Load(object sender, EventArgs e)
         {
@@ -249,19 +278,7 @@ namespace Szakdolgozat
             }
             csoportHozzaadButton.Enabled = false;
             sql = "SELECT csoportNeve FROM csoportok";
-            using (var cmd = new MySqlCommand(sql, Program.conn))
-            {
-                MySqlDataReader rdr = cmd.ExecuteReader();
-                while (rdr.Read())
-                {
-                    keszCsoportCombo.Items.Add(rdr.GetString(0));
-                    keszCsoportok.Add(rdr.GetString(0));
-                }
-            }
-            if (keszCsoportCombo.Items.Count > 0)
-            {
-                keszCsoportCombo.SelectedIndex = 0;
-            }
+            keszCsoport(sql);
             int csoportokSzama = 0;
             sql = "SELECT csoportokSzama FROM intezmeny";
             using (var cmd = new MySqlCommand(sql, Program.conn))

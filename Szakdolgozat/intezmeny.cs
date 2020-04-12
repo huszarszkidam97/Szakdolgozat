@@ -52,6 +52,7 @@ namespace Szakdolgozat
             intCimTextBox.BackColor = Color.White;
             pluszTelephelyTextBox.BackColor = Color.White;
             tobbTelephelyCombo.BackColor = Color.White;
+            csoportokSzamaNum.BackColor = Color.White;
             bool ellenoriz = true;
             string hibakod = "";
             if (intNevTextBox.Text != "" && intCimTextBox.Text != "" && csoportokSzamaNum.Value != 0)
@@ -79,7 +80,14 @@ namespace Szakdolgozat
 
 
 
-
+            //Csoportok száma ellenőrzése
+            if (csoportokSzamaNum.Value == 0)
+            {
+                csoportokSzamaNum.BackColor = Color.Red;
+                ellenoriz = false;
+                hibakod = "A pirossal jelölt területek hibásak!";
+            }
+            //////////////////////////////////////////////////////////////////////
             //Intézmény neve ellenőrzése
             intezmenyNeve = intNevTextBox.Text;
             if (intezmenyNeve.Length > 60 ||intezmenyNeve.Length == 0)

@@ -74,7 +74,7 @@
             this.button4.Location = new System.Drawing.Point(612, 47);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(150, 50);
-            this.button4.TabIndex = 4;
+            this.button4.TabIndex = 10;
             this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Visible = false;
@@ -93,7 +93,7 @@
             this.button3.Location = new System.Drawing.Point(439, 47);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(150, 50);
-            this.button3.TabIndex = 3;
+            this.button3.TabIndex = 9;
             this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Visible = false;
@@ -112,7 +112,7 @@
             this.button2.Location = new System.Drawing.Point(226, 47);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(190, 50);
-            this.button2.TabIndex = 2;
+            this.button2.TabIndex = 8;
             this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Visible = false;
@@ -131,7 +131,7 @@
             this.button1.Location = new System.Drawing.Point(12, 47);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(190, 50);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 7;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
@@ -195,7 +195,7 @@
             this.telephelyekTextBox.Location = new System.Drawing.Point(192, 110);
             this.telephelyekTextBox.Name = "telephelyekTextBox";
             this.telephelyekTextBox.Size = new System.Drawing.Size(433, 32);
-            this.telephelyekTextBox.TabIndex = 24;
+            this.telephelyekTextBox.TabIndex = 4;
             // 
             // intCimTextBox
             // 
@@ -205,7 +205,7 @@
             this.intCimTextBox.Location = new System.Drawing.Point(192, 188);
             this.intCimTextBox.Name = "intCimTextBox";
             this.intCimTextBox.Size = new System.Drawing.Size(433, 32);
-            this.intCimTextBox.TabIndex = 23;
+            this.intCimTextBox.TabIndex = 6;
             // 
             // label4
             // 
@@ -228,7 +228,7 @@
             this.csoportokSzamaTextBox.Location = new System.Drawing.Point(192, 147);
             this.csoportokSzamaTextBox.Name = "csoportokSzamaTextBox";
             this.csoportokSzamaTextBox.Size = new System.Drawing.Size(74, 32);
-            this.csoportokSzamaTextBox.TabIndex = 21;
+            this.csoportokSzamaTextBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -277,7 +277,7 @@
             this.intNevTextBox.Location = new System.Drawing.Point(192, 68);
             this.intNevTextBox.Name = "intNevTextBox";
             this.intNevTextBox.Size = new System.Drawing.Size(433, 28);
-            this.intNevTextBox.TabIndex = 8;
+            this.intNevTextBox.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -342,7 +342,7 @@
             this.button5.Location = new System.Drawing.Point(166, 189);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(98, 38);
-            this.button5.TabIndex = 4;
+            this.button5.TabIndex = 2;
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -393,7 +393,7 @@
             this.kijelentkezes_Button.Location = new System.Drawing.Point(669, 103);
             this.kijelentkezes_Button.Name = "kijelentkezes_Button";
             this.kijelentkezes_Button.Size = new System.Drawing.Size(93, 29);
-            this.kijelentkezes_Button.TabIndex = 24;
+            this.kijelentkezes_Button.TabIndex = 11;
             this.kijelentkezes_Button.UseVisualStyleBackColor = true;
             this.kijelentkezes_Button.Visible = false;
             this.kijelentkezes_Button.Click += new System.EventHandler(this.button6_Click);

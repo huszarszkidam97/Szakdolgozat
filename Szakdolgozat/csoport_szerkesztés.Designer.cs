@@ -46,6 +46,7 @@
             this.csoportok_View = new System.Windows.Forms.ListView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.box_szerkesztes.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             this.button1.Location = new System.Drawing.Point(156, 36);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 41);
-            this.button1.TabIndex = 17;
+            this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -110,7 +111,7 @@
             this.telephely_Box.Location = new System.Drawing.Point(188, 139);
             this.telephely_Box.Name = "telephely_Box";
             this.telephely_Box.Size = new System.Drawing.Size(121, 21);
-            this.telephely_Box.TabIndex = 6;
+            this.telephely_Box.TabIndex = 5;
             // 
             // csoport_label
             // 
@@ -126,14 +127,14 @@
             this.csoportLetszam_Text.Location = new System.Drawing.Point(188, 108);
             this.csoportLetszam_Text.Name = "csoportLetszam_Text";
             this.csoportLetszam_Text.Size = new System.Drawing.Size(178, 20);
-            this.csoportLetszam_Text.TabIndex = 5;
+            this.csoportLetszam_Text.TabIndex = 4;
             // 
             // csoportNeve_Text
             // 
             this.csoportNeve_Text.Location = new System.Drawing.Point(188, 72);
             this.csoportNeve_Text.Name = "csoportNeve_Text";
             this.csoportNeve_Text.Size = new System.Drawing.Size(178, 20);
-            this.csoportNeve_Text.TabIndex = 4;
+            this.csoportNeve_Text.TabIndex = 3;
             // 
             // dolgozókToolStripMenuItem
             // 
@@ -181,7 +182,7 @@
             this.mentesButton.Location = new System.Drawing.Point(542, 36);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(75, 41);
-            this.mentesButton.TabIndex = 13;
+            this.mentesButton.TabIndex = 7;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 
@@ -191,8 +192,8 @@
             this.csoportok_View.HideSelection = false;
             this.csoportok_View.Location = new System.Drawing.Point(12, 36);
             this.csoportok_View.Name = "csoportok_View";
-            this.csoportok_View.Size = new System.Drawing.Size(132, 287);
-            this.csoportok_View.TabIndex = 12;
+            this.csoportok_View.Size = new System.Drawing.Size(132, 269);
+            this.csoportok_View.TabIndex = 1;
             this.csoportok_View.UseCompatibleStateImageBehavior = false;
             this.csoportok_View.View = System.Windows.Forms.View.Tile;
             this.csoportok_View.SelectedIndexChanged += new System.EventHandler(this.dolgozok_View_SelectedIndexChanged);
@@ -216,9 +217,21 @@
             this.button2.Location = new System.Drawing.Point(455, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(72, 41);
-            this.button2.TabIndex = 18;
+            this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(12, 311);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(86, 37);
+            this.button3.TabIndex = 8;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // csoport_szerkesztés
             // 
@@ -227,6 +240,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(632, 360);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.box_szerkesztes);
@@ -271,5 +285,6 @@
         private System.Windows.Forms.ListView csoportok_View;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

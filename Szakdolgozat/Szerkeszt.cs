@@ -24,9 +24,9 @@ namespace Szakdolgozat
             this.Hide();
             Program.form_nyito.Show();
         }
-
-        private void Szerkeszt_Load(object sender, EventArgs e)
+        private void dolgozokLOAD()
         {
+            dolgozok_View.Items.Clear();
             string sql = "SELECT dolgozoNeve FROM dolgozok";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
@@ -36,7 +36,11 @@ namespace Szakdolgozat
                     dolgozok_View.Items.Add(rdr.GetString(0));
                 }
             }
-            sql = "SELECT csoportNeve FROM csoportok";
+        }
+        private void Szerkeszt_Load(object sender, EventArgs e)
+        {
+            dolgozokLOAD();
+            string sql = "SELECT csoportNeve FROM csoportok";
             using (var cmd = new MySqlCommand(sql, Program.conn))
             {
                 MySqlDataReader rdr = cmd.ExecuteReader();
@@ -334,6 +338,11 @@ namespace Szakdolgozat
                     }
                 }
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            dolgozokLOAD();
         }
     }
 }

@@ -46,15 +46,16 @@ namespace Szakdolgozat
                 HervenyesLabel.Visible = false;
             }
         }
-
+        string visszaallit = "";
         private void mentesButton_Click(object sender, EventArgs e)
         {
+            visszaallit = csoportKivalaszCombo.SelectedItem.ToString();
             AdatokBeolvasasa();
             foreach (var item in adatok)
             {
                 if (item.csoportnev == csoportKivalaszCombo.SelectedItem.ToString())
                 {
-                    if (item.csoportLetszam < item.MaxCsoportLetszam)
+                    if (item.csoportLetszam < item.MaxCsoportLetszam && item.csoportnev == csoportKivalaszCombo.SelectedItem.ToString())
                     {
                         bool vaneGyV;
                         if (gyVErvenyesMask.Text != "")
@@ -280,7 +281,7 @@ namespace Szakdolgozat
                     }
                     else
                     {
-                        MessageBox.Show(item.csoportnev + " már elérte a maximum létszámot!");
+                    MessageBox.Show(item.csoportnev + " már elérte a maximum létszámot!");
                     }
                 }
             }
@@ -340,7 +341,7 @@ namespace Szakdolgozat
                 }
                 item.csoportLetszam = db;
             }
-
+            csoportKivalaszCombo.SelectedItem = visszaallit;
         }
         private void intHozzaadButton_Click(object sender, EventArgs e)
         {
@@ -387,6 +388,9 @@ namespace Szakdolgozat
             HHvagyHHHCombo.SelectedItem = "HH (Hátrányos helyzetű)";
             gyermekFelveteleButton.Enabled = false;
             AdatokBeolvasasa();
+        }
+        private void csoportKivalaszCombo_SelectedIndexChanged(object sender, EventArgs e)
+        {
         }
     }
 }

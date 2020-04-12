@@ -63,7 +63,7 @@
             this.button1.Location = new System.Drawing.Point(12, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 41);
-            this.button1.TabIndex = 22;
+            this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -101,7 +101,7 @@
             this.hozzaad_Button.Location = new System.Drawing.Point(436, 185);
             this.hozzaad_Button.Name = "hozzaad_Button";
             this.hozzaad_Button.Size = new System.Drawing.Size(67, 39);
-            this.hozzaad_Button.TabIndex = 13;
+            this.hozzaad_Button.TabIndex = 8;
             this.hozzaad_Button.UseVisualStyleBackColor = true;
             this.hozzaad_Button.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -110,7 +110,7 @@
             this.telephelyHozzaad_Text.Location = new System.Drawing.Point(267, 195);
             this.telephelyHozzaad_Text.Name = "telephelyHozzaad_Text";
             this.telephelyHozzaad_Text.Size = new System.Drawing.Size(163, 20);
-            this.telephelyHozzaad_Text.TabIndex = 12;
+            this.telephelyHozzaad_Text.TabIndex = 7;
             // 
             // label2
             // 
@@ -129,7 +129,7 @@
             this.telephelyTorlese_button.Location = new System.Drawing.Point(323, 155);
             this.telephelyTorlese_button.Name = "telephelyTorlese_button";
             this.telephelyTorlese_button.Size = new System.Drawing.Size(67, 39);
-            this.telephelyTorlese_button.TabIndex = 10;
+            this.telephelyTorlese_button.TabIndex = 6;
             this.telephelyTorlese_button.UseVisualStyleBackColor = true;
             this.telephelyTorlese_button.Click += new System.EventHandler(this.telephelyTorlese_button_Click);
             // 
@@ -139,7 +139,7 @@
             this.comboBox1.Location = new System.Drawing.Point(196, 165);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 9;
+            this.comboBox1.TabIndex = 5;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
@@ -156,7 +156,7 @@
             this.csoportokSzáma_Text.Location = new System.Drawing.Point(196, 136);
             this.csoportokSzáma_Text.Name = "csoportokSzáma_Text";
             this.csoportokSzáma_Text.Size = new System.Drawing.Size(54, 20);
-            this.csoportokSzáma_Text.TabIndex = 8;
+            this.csoportokSzáma_Text.TabIndex = 4;
             // 
             // dolgozoneve_label
             // 
@@ -190,14 +190,14 @@
             this.intezmenyCime_Text.Location = new System.Drawing.Point(196, 108);
             this.intezmenyCime_Text.Name = "intezmenyCime_Text";
             this.intezmenyCime_Text.Size = new System.Drawing.Size(251, 20);
-            this.intezmenyCime_Text.TabIndex = 5;
+            this.intezmenyCime_Text.TabIndex = 3;
             // 
             // intezmenyNeve_Text
             // 
             this.intezmenyNeve_Text.Location = new System.Drawing.Point(196, 72);
             this.intezmenyNeve_Text.Name = "intezmenyNeve_Text";
             this.intezmenyNeve_Text.Size = new System.Drawing.Size(366, 20);
-            this.intezmenyNeve_Text.TabIndex = 4;
+            this.intezmenyNeve_Text.TabIndex = 2;
             // 
             // dolgozókToolStripMenuItem
             // 
@@ -245,7 +245,7 @@
             this.mentesButton.Location = new System.Drawing.Point(554, 329);
             this.mentesButton.Name = "mentesButton";
             this.mentesButton.Size = new System.Drawing.Size(75, 41);
-            this.mentesButton.TabIndex = 19;
+            this.mentesButton.TabIndex = 9;
             this.mentesButton.UseVisualStyleBackColor = true;
             this.mentesButton.Click += new System.EventHandler(this.mentesButton_Click);
             // 

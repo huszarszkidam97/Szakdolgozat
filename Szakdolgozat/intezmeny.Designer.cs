@@ -239,7 +239,7 @@
             this.hozzaadButton.Location = new System.Drawing.Point(449, 203);
             this.hozzaadButton.Name = "hozzaadButton";
             this.hozzaadButton.Size = new System.Drawing.Size(84, 32);
-            this.hozzaadButton.TabIndex = 6;
+            this.hozzaadButton.TabIndex = 5;
             this.hozzaadButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.hozzaadButton.UseVisualStyleBackColor = true;
             this.hozzaadButton.Click += new System.EventHandler(this.hozzaadButton_Click);
@@ -287,7 +287,7 @@
             this.tobbTelephelyCombo.Location = new System.Drawing.Point(270, 207);
             this.tobbTelephelyCombo.Name = "tobbTelephelyCombo";
             this.tobbTelephelyCombo.Size = new System.Drawing.Size(147, 21);
-            this.tobbTelephelyCombo.TabIndex = 15;
+            this.tobbTelephelyCombo.TabIndex = 6;
             // 
             // menuStrip1
             // 
