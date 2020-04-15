@@ -83,6 +83,12 @@ namespace Szakdolgozat
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            gyermekNeveTextBox.BackColor = Color.White;
+            szulIdoText.BackColor = Color.White;
+            omAzonMask.BackColor = Color.White;
+            anyjaNeveTextBox.BackColor = Color.White;
+            gyVervenyesText.BackColor = Color.White;
+            HHHvagyHHErvenyesText.BackColor = Color.White;
             HHvagyHHHCheck.Checked = false;
             HervenyesLabel.Visible = false;
             hhVAGYhhhText.Visible = false;
@@ -364,80 +370,148 @@ namespace Szakdolgozat
         string hervenyes = "";
         private void mentesButton_Click(object sender, EventArgs e)
         {
-            try
+            bool ellenoriz = true;
+            string hibauzenet = "A pirossal jelzett területek hibásak!";
+            gyermekNeveTextBox.BackColor = Color.White;
+            szulIdoText.BackColor = Color.White;
+            omAzonMask.BackColor = Color.White;
+            anyjaNeveTextBox.BackColor = Color.White;
+            gyVervenyesText.BackColor = Color.White;
+            HHHvagyHHErvenyesText.BackColor = Color.White;
+
+            string nev = gyermekNeveTextBox.Text;
+            string szulido = szulIdoText.Text;
+            string omAzon = omAzonMask.Text;
+            string anyjaneve = anyjaNeveTextBox.Text;
+            string gyV = gyVHatTextBox.Text;
+            ervenyes = gyVervenyesText.Text;
+            string hhvagyhhh = hhVAGYhhhText.Text;
+            hervenyes = HHHvagyHHErvenyesText.Text;
+            string csoport = csoportKivalaszCombo.SelectedItem.ToString();
+            string neme = neme_comboBox.SelectedItem.ToString();
+            if (gyV.Length == 0 || gyV == "nincs")
             {
-                string nev = gyermekNeveTextBox.Text;
-                string szulido = szulIdoText.Text;
-                string omAzon = omAzonMask.Text;
-                string anyjaneve = anyjaNeveTextBox.Text;
+                gyV = "nincs";
+                ervenyes = "-";
+            }
+            if (HHvagyHHHCheck.Checked == false)
+            {
+                hhvagyhhh = "nincs";
+                hervenyes = "-";
+            }
+            //Ellenőrzések
+            if (nev.Length == 0 || nev == "")
+            {
+                ellenoriz = false;
+                gyermekNeveTextBox.BackColor = Color.Red;
+            }
 
-                string gyV = gyVHatTextBox.Text;
-                ervenyes = gyVervenyesText.Text;
-                string hhvagyhhh = hhVAGYhhhText.Text;
-                hervenyes = HHHvagyHHErvenyesText.Text;
-
-                string csoport = csoportKivalaszCombo.SelectedItem.ToString();
-                string neme = neme_comboBox.SelectedItem.ToString();
-
-                if (gyV.Length == 0 || gyV == "nincs")
+            if (szulido.Length == 0 || szulido == "")
+            {
+                ellenoriz = false;
+                szulIdoText.BackColor = Color.Red;
+            }
+            if (omAzon.Length != 11)
+            {
+                ellenoriz = false;
+                omAzonMask.BackColor = Color.Red;
+            }
+            if (anyjaneve.Length == 0 || anyjaneve == "")
+            {
+                ellenoriz = false;
+                anyjaNeveTextBox.BackColor = Color.Red;
+            }
+            if (gyV.Length > 0)
+            {
+                foreach (var item in ervenyes)
                 {
-                    gyV = "nincs";
-                    ervenyes = "-";
-                }
-                if (HHvagyHHHCheck.Checked == false)
-                {
-                    hhvagyhhh = "nincs";
-                    hervenyes = "-";
-                }
-                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
-                Program.sqlCommand.Connection = Program.conn;
-                Program.sqlCommand.CommandText = "UPDATE `gyermekek` SET nev = @1, " +
-                                                 "szuletesiIdo = @2, " +
-                                                 "omazon = @3, " +
-                                                 "anyjaNeve = @4, " +
-                                                 "gyV = @5, " +
-                                                 "gyVervenyes = @6, " +
-                                                 "hhvagyhhh = @7, " +
-                                                 "ervenyes = @8, " +
-                                                 "csoport = @9, " +
-                                                 "neme = @10 " +
-                                                 "WHERE (azon = '" + azon + "')";
-
-
-                Program.sqlCommand.Parameters.AddWithValue("@1", nev);
-                Program.sqlCommand.Parameters.AddWithValue("@2", szulido);
-                Program.sqlCommand.Parameters.AddWithValue("@3", omAzon);
-                Program.sqlCommand.Parameters.AddWithValue("@4", anyjaneve);
-                Program.sqlCommand.Parameters.AddWithValue("@5", gyV);
-                Program.sqlCommand.Parameters.AddWithValue("@6", ervenyes);
-                Program.sqlCommand.Parameters.AddWithValue("@7", hhvagyhhh);
-                Program.sqlCommand.Parameters.AddWithValue("@8", hervenyes);
-                Program.sqlCommand.Parameters.AddWithValue("@9", csoport);
-                Program.sqlCommand.Parameters.AddWithValue("@10", neme);
-                Program.sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Sikeres mentés!");
-
-                string sql = "SELECT nev,csoport FROM gyermekek";
-                adatok.Clear();
-                using (var cmd = new MySqlCommand(sql, Program.conn))
-                {
-                    MySqlDataReader rdr = cmd.ExecuteReader();
-                    while (rdr.Read())
+                    if (item == ' ')
                     {
-                        Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
-                        adatok.Add(uj);
+                        ellenoriz = false;
+                        gyVervenyesText.BackColor = Color.Red;
                     }
                 }
-                listView1.Clear();
-                foreach (var item in adatok)
+                if (ervenyes.Length == 0 || ervenyes == "")
                 {
-                    if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
-                    listView1.Items.Add(item.nev);
+                    ellenoriz = false;
+                    gyVervenyesText.BackColor = Color.Red;
                 }
             }
-            catch (Exception)
+            if (HHvagyHHHCheck.Checked == true)
             {
-                MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                foreach (var item in hervenyes)
+                {
+                    if (item == ' ')
+                    {
+                        ellenoriz = false;
+                        HHHvagyHHErvenyesText.BackColor = Color.Red;
+                    }
+                }
+                if (hervenyes.Length == 0 ||hervenyes == "")
+                {
+                    ellenoriz = false;
+                    HHHvagyHHErvenyesText.BackColor = Color.Red;
+                }
+            }
+            ///////////////////////////////////////////
+            if (ellenoriz)
+            {
+                try
+                {
+                    Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                    Program.sqlCommand.Connection = Program.conn;
+                    Program.sqlCommand.CommandText = "UPDATE `gyermekek` SET nev = @1, " +
+                                                     "szuletesiIdo = @2, " +
+                                                     "omazon = @3, " +
+                                                     "anyjaNeve = @4, " +
+                                                     "gyV = @5, " +
+                                                     "gyVervenyes = @6, " +
+                                                     "hhvagyhhh = @7, " +
+                                                     "ervenyes = @8, " +
+                                                     "csoport = @9, " +
+                                                     "neme = @10 " +
+                                                     "WHERE (azon = '" + azon + "')";
+
+
+                    Program.sqlCommand.Parameters.AddWithValue("@1", nev);
+                    Program.sqlCommand.Parameters.AddWithValue("@2", szulido);
+                    Program.sqlCommand.Parameters.AddWithValue("@3", omAzon);
+                    Program.sqlCommand.Parameters.AddWithValue("@4", anyjaneve);
+                    Program.sqlCommand.Parameters.AddWithValue("@5", gyV);
+                    Program.sqlCommand.Parameters.AddWithValue("@6", ervenyes);
+                    Program.sqlCommand.Parameters.AddWithValue("@7", hhvagyhhh);
+                    Program.sqlCommand.Parameters.AddWithValue("@8", hervenyes);
+                    Program.sqlCommand.Parameters.AddWithValue("@9", csoport);
+                    Program.sqlCommand.Parameters.AddWithValue("@10", neme);
+                    Program.sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sikeres mentés!");
+
+                    string sql = "SELECT nev,csoport FROM gyermekek";
+                    adatok.Clear();
+                    using (var cmd = new MySqlCommand(sql, Program.conn))
+                    {
+                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        while (rdr.Read())
+                        {
+                            Gyermek uj = new Gyermek(rdr.GetString(0), rdr.GetString(1));
+                            adatok.Add(uj);
+                        }
+                    }
+                    listView1.Clear();
+                    foreach (var item in adatok)
+                    {
+                        if (item.csoport == csoportSelectCombo.SelectedItem.ToString())
+                            listView1.Items.Add(item.nev);
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show(hibauzenet);
             }
         }
 

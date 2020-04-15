@@ -126,21 +126,57 @@ namespace Szakdolgozat
 
         private void mentesButton_Click(object sender, EventArgs e)
         {
+            bool ellenoriz = false;
+            string hibakod = "A pirossal jelzett területek hibásak!";
+            intezmenyNeve_Text.BackColor = Color.White;
+            intezmenyCime_Text.BackColor = Color.White;
+            csoportokSzáma_Text.BackColor = Color.White;
+            telephelyHozzaad_Text.BackColor = Color.White;
+
+            string intezmenyNeve = intezmenyNeve_Text.Text;
+            string intezmenyCime = intezmenyCime_Text.Text;
+            string csoportokSzama = csoportokSzáma_Text.Text;
+            string telephelyEk = "";
+            foreach (var item in comboBox1.Items)
+            {
+                telephelyEk += item + ";";
+            }
+
+            if (intezmenyNeve.Length == 0 || intezmenyNeve == "")
+            {
+                intezmenyNeve_Text.BackColor = Color.Red;
+                ellenoriz = true;
+            }
+            if (intezmenyCime.Length == 0 || intezmenyCime == "")
+            {
+                intezmenyCime_Text.BackColor = Color.Red;
+                ellenoriz = true;
+            }
+            foreach (var item in csoportokSzama)
+            {
+                if (Char.IsDigit(item) != true)
+                {
+                    csoportokSzáma_Text.BackColor = Color.Red;
+                    ellenoriz = true;
+                }
+            }
+            if (csoportokSzama.Length == 0 || csoportokSzama == "")
+            {
+                csoportokSzáma_Text.BackColor = Color.Red;
+                ellenoriz = true;
+            }
+
+            if (telephelyEk.Length == 0 || telephelyEk == "")
+            {
+                telephelyHozzaad_Text.BackColor = Color.Red;
+                ellenoriz = true;
+            }
+            if (ellenoriz == false)
             try
             {
-                string intezmenyNeve = intezmenyNeve_Text.Text;
-                string intezmenyCime = intezmenyCime_Text.Text;
-                string csoportokSzama = csoportokSzáma_Text.Text;
-                string telephelyEk = "";
-                foreach (var item in comboBox1.Items)
-                {
-                    telephelyEk += item + ";";
-                }
                 Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
                 Program.sqlCommand.Connection = Program.conn;
                 Program.sqlCommand.CommandText = "UPDATE `intezmeny` SET intezmenyNeve = @1, intezmenyCime = @2, csoportokSzama = @3, telephelyEk = @4 WHERE (azon = '" + azon + "')";
-
-
                 Program.sqlCommand.Parameters.AddWithValue("@1", intezmenyNeve);
                 Program.sqlCommand.Parameters.AddWithValue("@2", intezmenyCime);
                 Program.sqlCommand.Parameters.AddWithValue("@3", csoportokSzama);
@@ -152,6 +188,10 @@ namespace Szakdolgozat
             catch (Exception)
             {
                 MessageBox.Show("Hiba a mentés sopán!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show(hibakod);
             }
         }
 

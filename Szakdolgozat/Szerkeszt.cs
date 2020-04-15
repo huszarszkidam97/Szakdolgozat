@@ -69,7 +69,8 @@ namespace Szakdolgozat
 
         private void dolgozok_View_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            dolgozoneve_Text.BackColor = Color.White;
+            beosztas_Text.BackColor = Color.White;
             box_szerkesztes.Enabled = false;
             mentesButton.Enabled = false;
             button2.Enabled = false;

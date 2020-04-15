@@ -68,6 +68,8 @@ namespace Szakdolgozat
         int azon = 0;
         private void dolgozok_View_SelectedIndexChanged(object sender, EventArgs e)
         {
+            csoportNeve_Text.BackColor = Color.White;
+            csoportLetszam_Text.BackColor = Color.White;
             box_szerkesztes.Enabled = false;
             mentesButton.Enabled = false;
             button2.Enabled = false;
@@ -153,23 +155,54 @@ namespace Szakdolgozat
 
         private void mentesButton_Click(object sender, EventArgs e)
         {
-            try
+            bool ellenoriz = false;
+            string hibakod = "Pirossal jelzett területek hibásak!";
+
+            csoportNeve_Text.BackColor = Color.White;
+            csoportLetszam_Text.BackColor = Color.White;
+            string csoportNeve = csoportNeve_Text.Text;
+            string csoportLetszam = csoportLetszam_Text.Text;
+            string telephely = telephely_Box.SelectedItem.ToString();
+            if (csoportNeve == "" || csoportNeve.Length == 0)
             {
-                string csoportNeve = csoportNeve_Text.Text;
-                string csoportLetszam = csoportLetszam_Text.Text;
-                string telephely = telephely_Box.SelectedItem.ToString();
-                Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
-                Program.sqlCommand.Connection = Program.conn;
-                Program.sqlCommand.CommandText = "UPDATE `csoportok` SET csoportNeve = @1, telephely = @2, csoportLetszam = @3 WHERE (azon = '" + azon + "')";
-                Program.sqlCommand.Parameters.AddWithValue("@1", csoportNeve);
-                Program.sqlCommand.Parameters.AddWithValue("@2", telephely);
-                Program.sqlCommand.Parameters.AddWithValue("@3", csoportLetszam);
-                Program.sqlCommand.ExecuteNonQuery();
-                MessageBox.Show("Sikeres mentés!");
+                ellenoriz = true;
+                csoportNeve_Text.BackColor = Color.Red;
             }
-            catch (Exception)
+            if (csoportLetszam == "" || csoportLetszam.Length == 0)
             {
-                MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ellenoriz = true;
+                csoportLetszam_Text.BackColor = Color.Red;
+            }
+            foreach (var item in csoportLetszam)
+            {
+                if (Char.IsDigit(item) != true)
+                {
+                    ellenoriz = true;
+                    csoportLetszam_Text.BackColor = Color.Red;
+                }
+            }
+            if (ellenoriz == false)
+            {
+                try
+                {
+
+                    Program.sqlCommand = new MySqlCommand(Program.conn.ToString());
+                    Program.sqlCommand.Connection = Program.conn;
+                    Program.sqlCommand.CommandText = "UPDATE `csoportok` SET csoportNeve = @1, telephely = @2, csoportLetszam = @3 WHERE (azon = '" + azon + "')";
+                    Program.sqlCommand.Parameters.AddWithValue("@1", csoportNeve);
+                    Program.sqlCommand.Parameters.AddWithValue("@2", telephely);
+                    Program.sqlCommand.Parameters.AddWithValue("@3", csoportLetszam);
+                    Program.sqlCommand.ExecuteNonQuery();
+                    MessageBox.Show("Sikeres mentés!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Hiba a mentés során!", "információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show(hibakod);
             }
         }
 
